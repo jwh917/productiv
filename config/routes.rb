@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :todos
 
   resources :todo_categories, only: [:index, :show] 
 
