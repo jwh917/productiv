@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :habits
+
   resources :profiles, only: [:index, :show, :create, :update]
   
   resources :users, only: [:index, :update]
