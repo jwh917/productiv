@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
+
+  resources :profiles, only: [:index, :show, :create, :update]
   
-  resources :users, only: [:index, :update] 
+  resources :users, only: [:index, :update]
+
+  post "/signup", to: "users#create"
+
+  get "/me", to: "users#show"
+
+  patch "/me", to: "users#update" 
 
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!
