@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  resources :priorty_levels, only: [:index, :show] 
+  
   resources :todos
 
   resources :todo_categories, only: [:index, :show] 
