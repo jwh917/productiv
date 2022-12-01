@@ -10,9 +10,9 @@ Rails.application.routes.draw do
 
   resources :habits
 
-  resources :profiles, only: [:index, :show, :create, :update]
+  resources :profiles, only: [:index, :show, :create, :update, :destroy]
   
-  resources :users, only: [:index, :update]
+  resources :users, only: [:index, :update, :destroy]
 
   post "/signup", to: "users#create"
 
