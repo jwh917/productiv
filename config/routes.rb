@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :todo_categories, only: [:index, :show] 
+
   resources :habits
 
   resources :profiles, only: [:index, :show, :create, :update]
@@ -11,6 +13,10 @@ Rails.application.routes.draw do
   get "/me", to: "users#show"
 
   patch "/me", to: "users#update" 
+
+  post "/login", to: "sessions#create"
+
+  delete "/logout", to: "sessions#destroy"
 
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!
