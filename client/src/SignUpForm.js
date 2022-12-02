@@ -38,13 +38,13 @@ function SignUpForm({ setUser, setLoginSignup }) {
     <form onSubmit={handleSubmit}>
       <h2>SignUp Here</h2>
 
-      <label for="username">Username</label>
+      <label htmlFor="username">Username</label>
       <input type="text" placeholder="Username" id="username" value={username} onChange={(e) => setUsername(e.target.value)}/>
 
-      <label for="password">Password</label>
+      <label htmlFor="password">Password</label>
       <input type="password" placeholder="Password" id="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
 
-      <label for="passwordConformation">Password Conformation</label>
+      <label htmlFor="passwordConformation">Password Conformation</label>
       <input type="password" placeholder="Password Conformation" id="passwordConformation" value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)}/>
 
       <button type="submit" className="formButton"> {isLoading ? "Loading..." : "Signup"} </button>

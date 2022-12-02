@@ -30,10 +30,10 @@ function LoginForm({ setUser, setLoginSignup }) {
     <form onSubmit={handleSubmit}>
       <h2>Login Here</h2>
 
-      <label for="username">Username</label>
+      <label htmlFor="username">Username</label>
       <input type="text" placeholder="Username" id="username" value={username} onChange={(e) => setUsername(e.target.value)}/>
 
-      <label for="password">Password</label>
+      <label htmlFor="password">Password</label>
       <input type="password" placeholder="Password" id="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
 
       <button className="formButton"> {isLoading ? "Loading..." : "Login"} </button>

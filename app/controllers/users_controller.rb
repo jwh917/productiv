@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
   skip_before_action :authorize, only: [:create]
 
-  def index
-    users = User.all
-    render json: users
-    # render json: User.all
-  end
+  # def index
+  #   # users = User.all
+  #   # render json: @current_user, include: :profile
+  #   render json: User.all
+  # end
 
   def create
     user = User.create!(user_params)
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     # else 
     #   render json: @current_user
     # end
-    render json: @current_user
+    render json: @current_user, include: [:profile, :priorties, :todos]
   end
 
   def update

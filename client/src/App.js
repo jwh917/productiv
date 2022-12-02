@@ -1,18 +1,24 @@
 import React, { useEffect, useState } from "react";
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import Login from "./Login";
 import ProfileForm from "./ProfileForm";
-import LogoutButton from "./LogoutButton";
 import './App.css';
+
+import { Switch, Route } from "react-router-dom";
+
+import Home from "./Home";
+import About from "./About";
+import Todo from "./Todo";
+import NavBar from "./NavBar";
 
 
 function App() {
 
   const [user, setUser] = useState(null);
-  const [profiles, setProfiles] = useState([]);
+
 
   useEffect(() => {
-    // auto-login
+
     fetch("/me").then((res) => {
       if (res.ok) {
         res.json().then((user) => setUser(user));
@@ -20,41 +26,37 @@ function App() {
     });
 
 
-    fetch("/profiles").then((res) => {
-      if (res.ok) {
-        res.json().then((profiles) => setProfiles(profiles));
-      }
-    })
   }, []);
-
 
 
   if (!user) return <Login setUser={setUser} />;
 
-  // console.log(user)
-  // console.log(user.id)
+  console.log(user)
+  // console.log(user.profile)
 
-  const ifProfile = profiles.find((profile) => {
-    if(profile.user_id === user.id) 
-    return profile
-  })
-
-  // console.log(ifProfile)
-
-  // go thru profiles if the user id match set profiles else return
-  // if user doesnt have a profile go to ProfileForm
-  if (!ifProfile) return <ProfileForm user={user} setUser={setUser} />;
+  if (user.profile === null) return <ProfileForm user={user} setUser={setUser} />;
 
 
   return (
     <div className="App">
       <header className="App-header">        
+        
+        {/* <img src={logo} className="App-logo" alt="logo" /> */}
 
-      
-        {/* put with nave bar */}
-        <LogoutButton setUser={setUser}/>
-
-        <img src={logo} className="App-logo" alt="logo" />
+        <>
+        <NavBar user={user} setUser={setUser}/>
+        <Switch>
+          <Route exact path="/about">
+            <About />
+          </Route>
+          <Route exact path="/todo">
+            <Todo />
+          </Route>
+          <Route exact path="/">
+            <Home user={user}/>
+          </Route>
+        </Switch>
+        </>
 
       </header>
     </div>

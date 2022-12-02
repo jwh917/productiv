@@ -2,8 +2,8 @@ class ProfilesController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 
   def index
-    profile = Profile.all
-    # profile = @current_user.profile
+    # profile = Profile.all
+    profile = @current_user.profile
     render json: profile
   end
 
