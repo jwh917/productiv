@@ -12,13 +12,15 @@ Rails.application.routes.draw do
 
   resources :profiles, only: [:index, :show, :create, :update, :destroy]
   
-  resources :users, only: [:index, :update, :destroy]
+  resources :users, only: [:index, :destroy]
 
   post "/signup", to: "users#create"
 
   get "/me", to: "users#show"
 
-  patch "/me", to: "users#update" 
+  patch "/me", to: "users#update"
+
+  delete "/me", to: "users#destroy"
 
   post "/login", to: "sessions#create"
 

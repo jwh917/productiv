@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 
 
+
 function SignUpForm({ setUser, setLoginSignup }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+
 
   function handleSubmit(e) {
     e.preventDefault();

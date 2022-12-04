@@ -4,6 +4,7 @@ class ProfilesController < ApplicationController
   def index
     # profile = Profile.all
     profile = @current_user.profile
+    # byebug
     render json: profile
   end
 

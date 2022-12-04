@@ -1,22 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
+import UserHabits from "./UserHabits";
 
 function Home({user}) {
 
-  const {start_day, end_day} = user.profile
+  const [habits, setHabits] = useState([]);
 
-  function morningAndNight(start_day, end_day){
+  useEffect(() => {
+    fetch("/habits")
+      .then((r) => r.json())
+      .then(setHabits);
+  }, []);
+
+  const {start_day, end_day} = user
+
+  function mornAfterEve(start_day, end_day){
     const date = new Date()
     const hour = date.getHours();
-    const wish = `Good ${(hour < start_day && 'Morning') || (hour < end_day && 'Afternoon') || 'Evening'} `;
+    const wish = `Good ${(hour > start_day && 'Morning') || (hour < end_day && 'Afternoon/Evening') || 'Night'} `;
     return wish
   }
+
+
+  function handleDelHabit(deletedHabitId){
+    const updatedHabits = habits.filter((habit) => habit.id !== deletedHabitId);
+    setHabits(updatedHabits)
+  }
+
 
 
   return (
     <div>
       <h1>Home</h1>
-      <h2>{morningAndNight(start_day, end_day)}</h2>
+      <h2>{mornAfterEve(start_day, end_day)}</h2>
 
       <label htmlFor="Notifications">Notifications </label>
 
@@ -25,57 +41,14 @@ function Home({user}) {
         <li>Set up Priority Bar</li>
         <li>If you haven't already</li>
       </ul>
+
+      <br/>
+
       
-      <h2>Everyday Habits</h2>
-      {/* Habits Form */}
-      {/* User Habits  */}
+      <h2>Previous Daily Habits</h2>
 
-      {/* <form></form> */}
-      <div >
-        <input
-          type="checkbox"
-          id="Shower"
-          name="Shower"
-          value="Shower"
-        />
-        <label htmlFor="Shower">Shower 🚿 | 🛀🏾 </label>
+      <UserHabits habits={habits} handleDelHabit={handleDelHabit}/>
 
-        <input
-          type="checkbox"
-          id="Brush teeth"
-          name="Brush teeth"
-          value="Brush teeth"
-        />
-        <label htmlFor="Brush teeth">Brush teeth 🦷 | 🪥 </label>
-
-        <input
-          type="checkbox"
-          id="Meds"
-          name="Meds"
-          value="Meds"
-        />
-        <label htmlFor="Meds">Meds 💉 | 💊 </label>
-
-        <input
-          type="checkbox"
-          id="Drink water"
-          name="Drink water"
-          value="Drink water"
-        />
-        <label htmlFor="Drink water">Drink water 💦 | 🚰 </label>
-
-        <input
-          type="checkbox"
-          id="Mediation"
-          name="Mediation"
-          value="Mediation"
-        />
-        <label htmlFor="Mediation">Mediation 🧘🏻‍♀️ | 🧘🏾‍♂️ </label>
-        
-      </div>
-
-      <br/>
-      <br/>
       <br/>
 
       <div> 

@@ -10,15 +10,13 @@ const linkStyles = {
   width: "50px",
   padding: "12px",
   margin: "0 6px 6px",
-  background: "blue",
+  background: "#39FF14",
   textDecoration: "none",
   color: "white",
 };
 
 function NavBar({user, setUser}) {
 
-// const {username} = user
-// console.log(user.profile)
 
 
 const {name} = user.profile
@@ -29,37 +27,40 @@ const {name} = user.profile
   return (
     <div>
       <NavLink
-        to="/"
-        exact
-        style={linkStyles}
-        activeStyle={{
-          background: "darkblue",
-        }}
-      >
-        Home
-      </NavLink>
-      <NavLink
         to="/about"
         exact
         style={linkStyles}
         activeStyle={{
-          background: "darkblue",
+          background: "green",
+        }}
+        >
+        About
+      </NavLink>
+      <NavLink
+        to="/"
+        exact
+        style={linkStyles}
+        activeStyle={{
+          background: "green",
         }}
       >
-        About
+        Home
       </NavLink>
       <NavLink
         to="/todo"
         exact
         style={linkStyles}
         activeStyle={{
-          background: "darkblue",
+          background: "green",
         }}
       >
         Todo
       </NavLink>
 
       <h2>ProDucTiv</h2>
+      <img src="https://ak9.picdn.net/shutterstock/videos/30003889/thumb/8.jpg?ip=x480" alt="ProDucTiv1"/>
+      <br/>
+      <br/>
       <h3>Welcome, {name}</h3>
       <Clock/> 
       <br/>

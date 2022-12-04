@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
   skip_before_action :authorize, only: [:create]
 
-  # def index
-  #   # users = User.all
-  #   # render json: @current_user, include: :profile
-  #   render json: User.all
-  # end
+  def index
+    # users = User.all
+    # render json: @current_user, include: :profile
+    render json: User.all
+  end
 
   def create
     user = User.create!(user_params)
@@ -19,7 +19,9 @@ class UsersController < ApplicationController
     # else 
     #   render json: @current_user
     # end
-    render json: @current_user, include: [:profile, :priorties, :todos]
+    # user = @current_user
+    # byebug
+    render json: @current_user
   end
 
   def update
@@ -35,11 +37,11 @@ class UsersController < ApplicationController
   #   render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
   end 
 
-  # def destroy
-  #   user = User.find(params[:id])
-  #   user.destroy
-  #   head :no_content
-  # end
+  def destroy
+    user = @current_user
+    user.destroy
+    head :no_content
+  end
 
   private
 

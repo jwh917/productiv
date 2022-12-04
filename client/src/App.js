@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
-// import logo from './logo.svg';
 import Login from "./Login";
 import ProfileForm from "./ProfileForm";
 import './App.css';
-
 import { Switch, Route } from "react-router-dom";
 
 import Home from "./Home";
@@ -17,6 +15,7 @@ function App() {
   const [user, setUser] = useState(null);
 
 
+
   useEffect(() => {
 
     fetch("/me").then((res) => {
@@ -24,30 +23,31 @@ function App() {
         res.json().then((user) => setUser(user));
       }
     });
-
-
   }, []);
 
 
   if (!user) return <Login setUser={setUser} />;
 
-  console.log(user)
-  // console.log(user.profile)
+  // console.log(user)
 
-  if (user.profile === null) return <ProfileForm user={user} setUser={setUser} />;
+  if (user.profile === null) return <ProfileForm user={user} setUser={setUser} />
+
+
+  console.log(user)
+
+
 
 
   return (
     <div className="App">
       <header className="App-header">        
         
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
 
         <>
         <NavBar user={user} setUser={setUser}/>
         <Switch>
           <Route exact path="/about">
-            <About />
+            <About user={user} setUser={setUser}/>
           </Route>
           <Route exact path="/todo">
             <Todo />

@@ -8,7 +8,7 @@
   text-align: center;
 } */
 
-form{
+.loginSignUp{
   height: 520px;
   width: 400px;
   background-color: darkgreen;
@@ -22,28 +22,29 @@ form{
   box-shadow: 0 0 40px rgba(8,7,16,0.6);
   padding: 50px 35px;
 }
-form *{
+
+.loginSignUp *{
   font-family: 'Poppins',sans-serif;
   color: black;
   letter-spacing: 0.5px;
   outline: none;
   border: none;
 }
-form h2{
+.loginSignUp h2{
   font-size: 32px;
   font-weight: 500;
   line-height: 42px;
   text-align: center;
 }
 
-label{
+.loginSignUp label{
   display: block;
   margin-top: 30px;
   font-size: 16px;
   font-weight: 500;
 }
 
-input{
+.loginSignUp input{
   display: block;
   height: 50px;
   width: 100%;
@@ -54,7 +55,7 @@ input{
   font-size: 14px;
   font-weight: 300;
 }
-::placeholder{
+.loginSignUp::placeholder{
   color: #e5e5e5;
 }
 
@@ -73,6 +74,11 @@ input{
 /* .App-logo {
   height: 40vmin;
   pointer-events: none;
+} */
+
+
+/* .editProfileForm{
+
 } */
 
 

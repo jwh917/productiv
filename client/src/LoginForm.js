@@ -1,10 +1,15 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router";
+
 
 function LoginForm({ setUser, setLoginSignup }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+
+  const history = useHistory();
+
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -18,6 +23,7 @@ function LoginForm({ setUser, setLoginSignup }) {
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
+        history.push("/about"); 
         r.json().then((user) => setUser(user));
       } else {
         r.json().then((err) => setErrors(err.errors));
@@ -27,7 +33,7 @@ function LoginForm({ setUser, setLoginSignup }) {
 
   return (
 
-    <form onSubmit={handleSubmit}>
+    <form className="loginSignUp" onSubmit={handleSubmit}>
       <h2>Login Here</h2>
 
       <label htmlFor="username">Username</label>

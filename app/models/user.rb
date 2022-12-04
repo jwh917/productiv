@@ -1,10 +1,10 @@
 class User < ApplicationRecord
-  has_one :profile
+  has_one :profile, dependent: :destroy
 
-  has_many :todos
+  has_many :todos, dependent: :destroy
   has_many :todos_categories, through: :todos
 
-  has_many :priorties
+  has_many :priorties, dependent: :destroy
   has_many :priorty_levels, through: :priorties
 
 
@@ -15,3 +15,5 @@ class User < ApplicationRecord
 
 
 end
+
+

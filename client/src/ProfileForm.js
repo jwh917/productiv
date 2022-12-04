@@ -8,8 +8,6 @@ function ProfileForm({ user, setUser }) {
 
   const {id, username} = user
 
-  // console.log(id)
-  // console.log(username)
   const history = useHistory();  
 
   const [name, setName] = useState("");
@@ -42,20 +40,23 @@ function ProfileForm({ user, setUser }) {
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
-        r.json().then((profile) => console.log(profile));
+        history.push("/about")
+        r.json().then((profile) => {
+          console.log(profile)
+          console.log(user)
+          user.profile = profile
+        });
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
     });
-
-    history.push("/")
   }
 
   return (
 
     <div>
       
-      <h3> {username} </h3>
+      <h3>Username: {username} </h3>
       {/* LOGOUT BUTTON  */}
       <LogoutButton setUser={setUser}/>
 
@@ -64,23 +65,23 @@ function ProfileForm({ user, setUser }) {
       <form onSubmit={handleSubmit} style={{"height" : "800px"}}>
         <h2>Fill Out Profile Here</h2>
 
-        <label for="name">Name</label>
+        <label htmlFor="name">Name: </label>
         <input type="text" placeholder="Name" id="name" value={name} onChange={(e) => setName(e.target.value)}/>
 
-        <label for="email">Email</label>
+        <label htmlFor="email">Email:</label>
         <input type="email" placeholder="Email" id="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
 
         {/* Change to be selected */}
-        <label for="ageGroup">Age Group</label>
+        <label htmlFor="ageGroup">Age Group: </label>
         <input type="text" placeholder="Age Group" id="ageGroup" value={ageGroup} onChange={(e) => setAgeGroup(e.target.value)}/>
 
-        <label for="startDay">Start of the Day</label>
+        <label htmlFor="startDay">Start of the Day: </label>
         <input type="number" placeholder="Start of the Day" id="startDay" value={startDay} onChange={(e) => setStartDay(e.target.value)}/>
 
-        <label for="endDay">End of the Day</label>
+        <label htmlFor="endDay">End of the Day: </label>
         <input type="number" placeholder="End of the Day" id="endDay" value={endDay} onChange={(e) => setEndDay(e.target.value)}/>
 
-        <label for="bio">Bio</label>
+        <label htmlFor="bio">Bio: </label>
         <input type="text" placeholder="Bio" id="bio" value={bio} onChange={(e) => setBio(e.target.value)}/>
 
         <button className="formButton"> {isLoading ? "Loading..." : "Signup"} </button>
