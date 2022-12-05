@@ -37,10 +37,12 @@ function Todo() {
   // console.log(categoryNames)
 
 
- 
+  function handleCategorySelected(category) {
+    setSelectedCategory(category)
+  }
+
   const selectedTodoCategory = todoCategories.find(todoCat => {
     return todoCat.name === selectedCategory
-    // setState for selectedCategory
   })
 
   let selectedTodos = []
@@ -49,18 +51,15 @@ function Todo() {
     selectedTodos = todos
   } else {
     selectedTodos = todos.filter((todo) => 
-    (todo.todo_category_id === selectedTodoCategory.id))
+    (todo.todo_category.id === selectedTodoCategory.id))
   }
-
-
-
 
   return (
     <div>
       <h1>Todo List</h1>
       <h2>Todo Count: {todos.length}</h2>
 
-      <TodoList selectedTodos={selectedTodos} categoryNames={categoryNames} />
+      <TodoList selectedTodos={selectedTodos} categoryNames={categoryNames} selectedTodoCategory={selectedTodoCategory} handleCategorySelected={handleCategorySelected}/>
 
     </div>
   ); 
