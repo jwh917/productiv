@@ -8,6 +8,8 @@ function ProfileForm({ user, setUser }) {
 
   const {id, username} = user
 
+  // console.log(id)
+  // console.log(username)
   const history = useHistory();  
 
   const [name, setName] = useState("");
@@ -41,11 +43,7 @@ function ProfileForm({ user, setUser }) {
       setIsLoading(false);
       if (r.ok) {
         history.push("/about")
-        r.json().then((profile) => {
-          console.log(profile)
-          console.log(user)
-          user.profile = profile
-        });
+        r.json().then((profile) => console.log(profile) );
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
@@ -56,9 +54,9 @@ function ProfileForm({ user, setUser }) {
 
     <div>
       
-      <h3>Username: {username} </h3>
+      {/* <h3>Username: {username} </h3> */}
       {/* LOGOUT BUTTON  */}
-      <LogoutButton setUser={setUser}/>
+      {/* <LogoutButton setUser={setUser}/> */}
 
       <hr/>
 

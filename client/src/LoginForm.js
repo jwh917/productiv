@@ -23,7 +23,7 @@ function LoginForm({ setUser, setLoginSignup }) {
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
-        history.push("/about"); 
+        history.push("/"); 
         r.json().then((user) => setUser(user));
       } else {
         r.json().then((err) => setErrors(err.errors));

@@ -20,6 +20,8 @@ function About({user, setUser}) {
   const [profile, setProfile] = useState(user.profile);
 
 
+
+
   console.log(profile)
   const {id, user_id, name, email, age_group, start_day, end_day, bio} = profile
 
@@ -149,8 +151,8 @@ function About({user, setUser}) {
 
 
       <div>
+        
 
-      
       <form onSubmit={handleUpdateProfile}>
         <h2>Edit Profile Info Here</h2>
 

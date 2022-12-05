@@ -18,11 +18,7 @@ const linkStyles = {
 function NavBar({user, setUser}) {
 
 
-
 const {name} = user.profile
-
-
-
 
   return (
     <div>
