@@ -55,6 +55,9 @@ function Todo() {
   }
 
 
+  function handleDeleteTodo(deletedTodoId) {
+    setTodos(todos.filter((todo) => (todo.id !== deletedTodoId)))
+  }
 
 
   return (
@@ -62,7 +65,7 @@ function Todo() {
       <h1>Todo List</h1>
       <h2>Todo Count: {todos.length}</h2>
 
-      <TodoList selectedTodos={selectedTodos} categoryNames={categoryNames} selectedTodoCategory={selectedTodoCategory} handleCategorySelected={handleCategorySelected} />
+      <TodoList selectedTodos={selectedTodos} categoryNames={categoryNames} selectedTodoCategory={selectedTodoCategory} handleCategorySelected={handleCategorySelected} handleDeleteTodo={handleDeleteTodo}/>
 
     </div>
   ); 

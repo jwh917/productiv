@@ -2,7 +2,7 @@ import React, { useState }  from "react";
 
 
 
-function TodoItem({ title, category, todoId, completed }) {
+function TodoItem({ title, category, todoId, completed, handleDeleteTodo }) {
 
   const [isCompleted, setIsCompleted] = useState(completed);
 
@@ -25,13 +25,18 @@ function TodoItem({ title, category, todoId, completed }) {
   }
 
 
-
+  function handleDelete() {
+    fetch(`todos/${todoId}`, {
+        method: "DELETE"
+    });
+    handleDeleteTodo(todoId)
+  }
 
 
     return (
         <div >
             <h4> - {category}</h4>
-            <h5> {title} </h5>             
+            <h5> &emsp; &emsp; {title} &emsp; <button onClick={handleDelete}>X</button></h5>             
 
             <label htmlFor="Completed">Completed? ✅</label>
             <br/>

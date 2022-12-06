@@ -3,7 +3,7 @@ import TodoItem from "./TodoItem";
 import TodoCategoryFilter from "./TodoCategoryFilter";
 
 
-function TodoList ({selectedTodos, categoryNames, selectedTodoCategory, handleCategorySelected}) {
+function TodoList ({selectedTodos, categoryNames, selectedTodoCategory, handleCategorySelected, handleDeleteTodo}) {
 
     const todosShown = selectedTodos.map((todo) => {
         const categoryId = todo.todo_category.id
@@ -14,6 +14,7 @@ function TodoList ({selectedTodos, categoryNames, selectedTodoCategory, handleCa
                 category={categoryNames[categoryId]}
                 todoId={todo.id}
                 completed={todo.completed}
+                handleDeleteTodo={handleDeleteTodo}
             />
         )
     })
@@ -21,7 +22,7 @@ function TodoList ({selectedTodos, categoryNames, selectedTodoCategory, handleCa
 
     return (
         <div>
-          <TodoCategoryFilter categoryNames={categoryNames} selectedTodoCategory={selectedTodoCategory} handleCategorySelected={handleCategorySelected} />
+        <TodoCategoryFilter categoryNames={categoryNames} selectedTodoCategory={selectedTodoCategory} handleCategorySelected={handleCategorySelected} />
 
           <div>{todosShown}</div>
         </div>
