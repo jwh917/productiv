@@ -54,12 +54,15 @@ function Todo() {
     (todo.todo_category.id === selectedTodoCategory.id))
   }
 
+
+
+
   return (
     <div>
       <h1>Todo List</h1>
       <h2>Todo Count: {todos.length}</h2>
 
-      <TodoList selectedTodos={selectedTodos} categoryNames={categoryNames} selectedTodoCategory={selectedTodoCategory} handleCategorySelected={handleCategorySelected}/>
+      <TodoList selectedTodos={selectedTodos} categoryNames={categoryNames} selectedTodoCategory={selectedTodoCategory} handleCategorySelected={handleCategorySelected} />
 
     </div>
   ); 

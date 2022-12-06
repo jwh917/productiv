@@ -13,6 +13,7 @@ function TodoList ({selectedTodos, categoryNames, selectedTodoCategory, handleCa
                 title={todo.title}
                 category={categoryNames[categoryId]}
                 todoId={todo.id}
+                completed={todo.completed}
             />
         )
     })
@@ -20,7 +21,7 @@ function TodoList ({selectedTodos, categoryNames, selectedTodoCategory, handleCa
 
     return (
         <div>
-        <TodoCategoryFilter categoryNames={categoryNames} selectedTodoCategory={selectedTodoCategory} handleCategorySelected={handleCategorySelected} />
+          <TodoCategoryFilter categoryNames={categoryNames} selectedTodoCategory={selectedTodoCategory} handleCategorySelected={handleCategorySelected} />
 
           <div>{todosShown}</div>
         </div>
