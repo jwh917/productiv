@@ -119,10 +119,12 @@ function About({user, setUser}) {
     <div>
 
       <br/>
-      <br/>
 
       <div>
-        
+      <h1>About User</h1>
+
+      <br/>
+
 
       <form onSubmit={handleUpdateUser} >
         <h2>Edit User Info Here</h2>

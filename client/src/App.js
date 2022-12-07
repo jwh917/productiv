@@ -8,6 +8,10 @@ import Home from "./Home";
 import About from "./About";
 import Todo from "./Todo";
 import NavBar from "./NavBar";
+import PriorityBar from "./PriorityBar";
+
+
+
 
 
 function App() {
@@ -51,6 +55,9 @@ function App() {
           </Route>
           <Route exact path="/todo">
             <Todo />
+          </Route>
+          <Route exact path="/prioritybar">
+            <PriorityBar />
           </Route>
           <Route exact path="/">
             <Home user={user}/>

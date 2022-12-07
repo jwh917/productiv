@@ -7,7 +7,8 @@ import Clock from "./Clock";
 
 const linkStyles = {
   display: "inline-block",
-  width: "50px",
+  width: "80px",
+  textAlign: "center",
   padding: "12px",
   margin: "0 6px 6px",
   background: "#39FF14",
@@ -51,6 +52,17 @@ const {name} = user.profile
         }}
       >
         Todo
+      </NavLink>
+
+      <NavLink
+        to="/prioritybar"
+        exact
+        style={linkStyles}
+        activeStyle={{
+          background: "green",
+        }}
+      >
+        PriorityBar
       </NavLink>
 
       <h2>ProDucTiv</h2>
