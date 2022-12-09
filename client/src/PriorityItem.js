@@ -10,8 +10,8 @@ const ExampleDiv = styled.div`
   background-color: darkgray;
   color: white;
   padding: 0.5em 1em;
-  width: 10%;
-  height: 200px;
+  width: 15%;
+  height: 260px;
   margin: 0.3em;
   cursor: move;
 `;
@@ -23,16 +23,16 @@ function PriorityItem({priorty, priorityLevel, positions, nodeRef, handleStop}){
 
 function priorityLevelColor(priorityLevel){
   if(priorityLevel === "Critical"){
-    return <h2>🔴</h2>
+    return <p>🔴</p>
   }
   if(priorityLevel === "Major"){
-    return <h2>🟠</h2>
+    return <p>🟠</p>
   }
   if(priorityLevel === "Medium"){
-    return <h2>🟡</h2>
+    return <p>🟡</p>
   }
   if(priorityLevel === "Minor"){
-    return <h2>🟢</h2>
+    return <p>🟢</p>
   }
 }
   
@@ -53,10 +53,11 @@ function priorityLevelColor(priorityLevel){
             >
               <div ref={nodeRef}>
                 <ExampleDiv id={priorty[5]}>
-                  <h3>PriorityLevel: {priorityLevel}</h3><sup>{priorty_level_id}</sup>
-                  {priorityLevelColor(priorityLevel)}
-                  <h4>{title}</h4>
-                  <h5> - {comment}</h5>
+                  <h5>PriorityLevel: {priorityLevel}</h5>
+                  {priorityLevelColor(priorityLevel)}<sup>{priorty_level_id}</sup>
+                  <h6>{title}</h6>
+                  <p> - {comment}</p>
+                  <button>X</button>
                 </ExampleDiv>
               </div>
             </Draggable>

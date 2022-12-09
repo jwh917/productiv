@@ -54,10 +54,10 @@ function App() {
             <About user={user} setUser={setUser}/>
           </Route>
           <Route exact path="/todo">
-            <Todo />
+            <Todo user={user}/>
           </Route>
           <Route exact path="/prioritybar">
-            <Priority />
+            <Priority user={user}/>
           </Route>
           <Route exact path="/">
             <Home user={user}/>

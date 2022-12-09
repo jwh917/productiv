@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import PriorityItem from "./PriorityItem";
+import NewPriorityForm from "./NewPriorityForm";
+
 
 import styled from "styled-components";
 
@@ -8,12 +10,12 @@ const ItemsContainer = styled.div`
   position: relative;
   background-color: white;
   width: 100%;
-  height: 500px;
+  height: 700px;
   border: 4px solid green;
 `;
 
 
-function PriorityBar({priorities, priorityLevelNames}){
+function PriorityBar({user, priorities, priorityLevelNames, addNewPriority}){
 
   const [positions, setPositions] = useState({});
   // const [hasLoaded, setHasLoaded] = useState(false);
@@ -61,7 +63,7 @@ function PriorityBar({priorities, priorityLevelNames}){
 
 
   const prioritiesShown = priorities.map((priorty) => {
-    const priortyLevelId = priorty.priorty_level_id
+    const priortyLevelId = priorty.priorty_level_id - 1
     return (
         <PriorityItem
             key={priorty.title}
@@ -73,6 +75,9 @@ function PriorityBar({priorities, priorityLevelNames}){
         />
     )
 })
+
+
+
   
   
   return (
@@ -80,6 +85,7 @@ function PriorityBar({priorities, priorityLevelNames}){
 
     
       <h3> New Priority Form</h3>
+      <NewPriorityForm user={user} priorityLevelNames={priorityLevelNames} addNewPriority={addNewPriority}/>
 
       <br/>
       <br/>

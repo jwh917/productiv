@@ -3,7 +3,7 @@ import PriorityBar from "./PriorityBar";
 
 
 
-function Priority(){
+function Priority({user}){
 
   const [priorities, setPriorities] = useState([]);
   const [priorityLevels, setPriorityLevels] = useState([]);
@@ -34,6 +34,10 @@ function Priority(){
   // console.log(priorityLevels)
   // console.log(priorityLevelNames)
 
+  function addNewPriority(newPriority) {
+    setPriorities([...priorities, newPriority])
+  }
+
   
   return (
     <div>
@@ -42,7 +46,7 @@ function Priority(){
 
       <br/>
 
-      <PriorityBar priorities={priorities} priorityLevelNames={priorityLevelNames}/>
+      <PriorityBar user={user} priorities={priorities} priorityLevelNames={priorityLevelNames} addNewPriority={addNewPriority}/>
     </div>
   );
 }

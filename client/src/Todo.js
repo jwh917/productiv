@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import TodoList from "./TodoList"
 
 
-function Todo() {
+function Todo({user}) {
 
   const [todos, setTodos] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -59,13 +59,17 @@ function Todo() {
     setTodos(todos.filter((todo) => (todo.id !== deletedTodoId)))
   }
 
+  function addNewTodo(newTodo) {
+    setTodos([...todos, newTodo])
+  }
+
 
   return (
     <div>
       <h1>Todo List</h1>
       <h2>Todo Count: {todos.length}</h2>
 
-      <TodoList selectedTodos={selectedTodos} categoryNames={categoryNames} selectedTodoCategory={selectedTodoCategory} handleCategorySelected={handleCategorySelected} handleDeleteTodo={handleDeleteTodo}/>
+      <TodoList user={user} selectedTodos={selectedTodos} categoryNames={categoryNames} selectedTodoCategory={selectedTodoCategory} handleCategorySelected={handleCategorySelected} addNewTodo={addNewTodo} handleDeleteTodo={handleDeleteTodo}/>
 
     </div>
   ); 
