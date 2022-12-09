@@ -1,9 +1,10 @@
 import React from "react";
 import TodoItem from "./TodoItem";
 import TodoCategoryFilter from "./TodoCategoryFilter";
+import NewTodoForm from "./NewTodoForm";
 
 
-function TodoList ({selectedTodos, categoryNames, selectedTodoCategory, handleCategorySelected, handleDeleteTodo}) {
+function TodoList ({user, selectedTodos, categoryNames, selectedTodoCategory, handleCategorySelected, addNewTodo, handleDeleteTodo}) {
 
     const todosShown = selectedTodos.map((todo) => {
         const categoryId = todo.todo_category.id
@@ -22,7 +23,9 @@ function TodoList ({selectedTodos, categoryNames, selectedTodoCategory, handleCa
 
     return (
         <div>
-        <TodoCategoryFilter categoryNames={categoryNames} selectedTodoCategory={selectedTodoCategory} handleCategorySelected={handleCategorySelected} />
+          <NewTodoForm user={user} categoryNames={categoryNames} addNewTodo={addNewTodo} />
+          <br/>
+          <TodoCategoryFilter categoryNames={categoryNames} selectedTodoCategory={selectedTodoCategory} handleCategorySelected={handleCategorySelected} />
 
           <div>{todosShown}</div>
         </div>

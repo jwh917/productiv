@@ -17,7 +17,7 @@ function Home({user}) {
   function mornAfterEve(start_day, end_day){
     const date = new Date()
     const hour = date.getHours();
-    const wish = `Good ${(hour > start_day && 'Morning') || (hour < end_day && 'Afternoon/Evening') || 'Night'} `;
+    const wish = `Time To ${(hour >= start_day && 'Start Your Day!') || (hour < end_day && 'Afternoon/Evening') || 'End Your Day'} `;
     return wish
   }
 

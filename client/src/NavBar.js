@@ -51,7 +51,7 @@ const {name} = user.profile
           background: "green",
         }}
       >
-        Todo
+        ToDoList
       </NavLink>
 
       <NavLink

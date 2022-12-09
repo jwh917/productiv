@@ -71,6 +71,10 @@
   cursor: pointer;
 }
 
+.vl {
+  border-left: 6px solid green;
+  height: 500px;
+}
 /* .App-logo {
   height: 40vmin;
   pointer-events: none;
