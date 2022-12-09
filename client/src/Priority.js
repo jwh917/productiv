@@ -38,6 +38,10 @@ function Priority({user}){
     setPriorities([...priorities, newPriority])
   }
 
+  function handleDeleteTodo(deletedPriorityId) {
+    setPriorities(priorities.filter((priority) => (priority.id !== deletedPriorityId)))
+  }
+
   
   return (
     <div>
@@ -46,7 +50,7 @@ function Priority({user}){
 
       <br/>
 
-      <PriorityBar user={user} priorities={priorities} priorityLevelNames={priorityLevelNames} addNewPriority={addNewPriority}/>
+      <PriorityBar user={user} priorities={priorities} priorityLevelNames={priorityLevelNames} addNewPriority={addNewPriority} handleDeleteTodo={handleDeleteTodo}/>
     </div>
   );
 }

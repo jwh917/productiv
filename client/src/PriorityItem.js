@@ -16,7 +16,7 @@ const ExampleDiv = styled.div`
   cursor: move;
 `;
 
-function PriorityItem({priorty, priorityLevel, positions, nodeRef, handleStop}){
+function PriorityItem({priorty, priorityLevel, positions, nodeRef, handleStop, handleDeleteTodo}){
   
   console.log(priorty)
   const {id, priorty_level_id, title, comment} = priorty
@@ -36,6 +36,18 @@ function priorityLevelColor(priorityLevel){
   }
 }
   
+
+
+function handleDelete() {
+  fetch(`priorties/${id}`, {
+      method: "DELETE"
+  });
+  handleDeleteTodo(id)
+}
+
+
+
+
   return (
     <>
     <Draggable
@@ -55,9 +67,9 @@ function priorityLevelColor(priorityLevel){
                 <ExampleDiv id={priorty[5]}>
                   <h5>PriorityLevel: {priorityLevel}</h5>
                   {priorityLevelColor(priorityLevel)}<sup>{priorty_level_id}</sup>
-                  <h6>{title}</h6>
+                  <h6>{title} &emsp; <button onClick={handleDelete}>X</button></h6>
                   <p> - {comment}</p>
-                  <button>X</button>
+                  {/* <button>X</button> */}
                 </ExampleDiv>
               </div>
             </Draggable>

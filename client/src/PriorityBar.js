@@ -15,7 +15,7 @@ const ItemsContainer = styled.div`
 `;
 
 
-function PriorityBar({user, priorities, priorityLevelNames, addNewPriority}){
+function PriorityBar({user, priorities, priorityLevelNames, addNewPriority, handleDeleteTodo}){
 
   const [positions, setPositions] = useState({});
   // const [hasLoaded, setHasLoaded] = useState(false);
@@ -72,6 +72,7 @@ function PriorityBar({user, priorities, priorityLevelNames, addNewPriority}){
             positions={positions}
             nodeRef={nodeRef}
             handleStop={handleStop}
+            handleDeleteTodo={handleDeleteTodo}
         />
     )
 })
@@ -99,13 +100,13 @@ function PriorityBar({user, priorities, priorityLevelNames, addNewPriority}){
 
 
         <h2>Critical</h2>
-        <div class="vl"></div>
+        <div className="vl"></div>
         <h2>Major</h2>
-        <div class="vl"></div>
+        <div className="vl"></div>
         <h2>Medium</h2>
-        <div class="vl"></div>
+        <div className="vl"></div>
         <h2>Minor</h2>
-        <div class="vl"></div>
+        <div className="vl"></div>
 
 
 
