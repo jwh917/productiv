@@ -42,14 +42,14 @@ function LoginForm({ setUser, setLoginSignup }) {
       <label htmlFor="password">Password</label>
       <input type="password" placeholder="Password" id="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
 
-      <button className="formButton"> {isLoading ? "Loading..." : "Login"} </button>
+      <button className="loginFormButton"> {isLoading ? "Loading..." : "Login"} </button>
 
       {errors.map((err) => ( <h6 key={err}>{err}</h6>))}
 
       <div>
         <h3>
           Don't have an account? &nbsp;
-          <button onClick={() => setLoginSignup(false)}>
+          <button className="SignUpButton" onClick={() => setLoginSignup(false)}>
             Sign Up
           </button>
         </h3>

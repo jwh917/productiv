@@ -1,9 +1,10 @@
 /* import './App.less'; */
-/* .body{
+ /* .body{
   background-color: #282c34;
 
-}
+} */
 
+/*
 .App {
   text-align: center;
 } */
@@ -59,7 +60,7 @@
   color: #e5e5e5;
 }
 
-.formButton{
+.loginFormButton{
   margin-top: 50px;
   width: 100%;
   background-color: #ffffff;
@@ -69,12 +70,21 @@
   font-weight: 600;
   border-radius: 5px;
   cursor: pointer;
+  
 }
 
-.vl {
-  border-left: 6px solid green;
-  height: 500px;
+.SignUpButton{
+  margin-top: 50px;
+  width: 50%;
+  background-color: lightgreen;
+  color: #080710;
+  padding: 15px 0;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
 }
+
 /* .App-logo {
   height: 40vmin;
   pointer-events: none;

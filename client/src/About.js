@@ -135,7 +135,7 @@ function About({user, setUser}) {
         <label htmlFor="email">Password:</label>
         <input type="password" placeholder="Password" id="password" onChange={(e) => setPasswordUpdate(e.target.value)}/>
 
-        <label htmlFor="ageGroup">Password Confirmation:</label>
+        <label htmlFor="ageGroup">Password Conformation:</label>
         <input type="password" placeholder="Password Confirmation" id="passwordConfirmation" onChange={(e) => setPasswordConfirmationUpdate(e.target.value)}/>
 
         <button className="formButton"> Edit User </button>
