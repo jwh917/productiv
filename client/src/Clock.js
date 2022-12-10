@@ -14,9 +14,9 @@ function Clock(){
   }, []);
   
   return (
-    <span>
+    <h3>
       {date.toLocaleTimeString()}
-    </span>
+    </h3>
   );
 }
 export default Clock;

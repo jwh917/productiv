@@ -65,14 +65,12 @@ const {name} = user.profile
         PriorityBar
       </NavLink>
 
-      <h2>ProDucTiv</h2>
+      <h1>ProDucTiv</h1>
       <img src="https://ak9.picdn.net/shutterstock/videos/30003889/thumb/8.jpg?ip=x480" alt="ProDucTiv1"/>
-      <br/>
-      <br/>
-      <h3>Welcome, {name}</h3>
+
+      <h2>Welcome, {name}</h2>
       <Clock/> 
-      <br/>
-      <br/>
+
       <LogoutButton setUser={setUser}/>
     </div>
   );
