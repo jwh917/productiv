@@ -37,7 +37,7 @@ function SignUpForm({ setUser, setLoginSignup }) {
   return (
 
 
-    <form onSubmit={handleSubmit}>
+    <form className="loginSignUp" onSubmit={handleSubmit}>
       <h2>SignUp Here</h2>
 
       <label htmlFor="username">Username</label>
@@ -49,7 +49,7 @@ function SignUpForm({ setUser, setLoginSignup }) {
       <label htmlFor="passwordConformation">Password Conformation</label>
       <input type="password" placeholder="Password Conformation" id="passwordConformation" value={passwordConfirmation} onChange={(e) => setPasswordConfirmation(e.target.value)}/>
 
-      <button type="submit" className="formButton"> {isLoading ? "Loading..." : "Signup"} </button>
+      <button type="submit" className="loginSignUpFormButton"> {isLoading ? "Loading..." : "Signup"} </button>
 
       {errors.map((err) => ( <h6 key={err}>{err}</h6>))}
 
@@ -58,7 +58,7 @@ function SignUpForm({ setUser, setLoginSignup }) {
       <div>
         <h3>
           Already have an account? &nbsp;
-          <button onClick={() => setLoginSignup(true)}>
+          <button className="SignUpButton" onClick={() => setLoginSignup(true)}>
             Log In
           </button>
         </h3>  

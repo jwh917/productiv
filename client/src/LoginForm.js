@@ -42,7 +42,7 @@ function LoginForm({ setUser, setLoginSignup }) {
       <label htmlFor="password">Password</label>
       <input type="password" placeholder="Password" id="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
 
-      <button className="loginFormButton"> {isLoading ? "Loading..." : "Login"} </button>
+      <button className="loginSignUpFormButton"> {isLoading ? "Loading..." : "Login"} </button>
 
       {errors.map((err) => ( <h6 key={err}>{err}</h6>))}
 
