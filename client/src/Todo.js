@@ -65,11 +65,19 @@ function Todo({user}) {
 
 
   return (
-    <div>
-      <h1>Todo List</h1>
-      <h2>Todo Count: {todos.length}</h2>
+    <div className="aboutPage">
+      <div style={{marginRight: "180px"}}>
+        <h1><u>Todo List</u></h1>
+        <h2><u>Todo Count</u>: {todos.length}</h2>
 
-      <TodoList user={user} selectedTodos={selectedTodos} categoryNames={categoryNames} selectedTodoCategory={selectedTodoCategory} handleCategorySelected={handleCategorySelected} addNewTodo={addNewTodo} handleDeleteTodo={handleDeleteTodo}/>
+
+      </div>
+
+      <div >
+        <TodoList user={user} selectedTodos={selectedTodos} categoryNames={categoryNames} selectedTodoCategory={selectedTodoCategory} handleCategorySelected={handleCategorySelected} addNewTodo={addNewTodo} handleDeleteTodo={handleDeleteTodo}/>
+
+      </div>
+
 
     </div>
   ); 

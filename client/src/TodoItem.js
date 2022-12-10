@@ -35,18 +35,17 @@ function TodoItem({ title, category, todoId, completed, handleDeleteTodo }) {
 
     return (
         <div >
-            <h4> - {category}</h4>
-            <h5> &emsp; &emsp; {title} &emsp; <button onClick={handleDelete}>X</button></h5>             
-
-            <label htmlFor="Completed">Completed? ✅</label>
-            <br/>
+            <h4><u>{category}</u> &emsp; | &emsp; -{title} &emsp; &emsp; 
+            {/* <h5> &emsp;  {title}  </h5>              */}
+            Completed? ✅ &emsp; <button onClick={handleDelete}>❌</button>
             <input
               type="checkbox"
               id="Completed"
               name="Completed"
               checked={isCompleted}
               onChange={handleChecked}
-            />
+            />      
+            </h4>
         </div>
     )
 }

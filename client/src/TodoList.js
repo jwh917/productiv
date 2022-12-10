@@ -23,11 +23,22 @@ function TodoList ({user, selectedTodos, categoryNames, selectedTodoCategory, ha
 
     return (
         <div>
-          <NewTodoForm user={user} categoryNames={categoryNames} addNewTodo={addNewTodo} />
-          <br/>
-          <TodoCategoryFilter categoryNames={categoryNames} selectedTodoCategory={selectedTodoCategory} handleCategorySelected={handleCategorySelected} />
+          <div>
+            <NewTodoForm user={user} categoryNames={categoryNames} addNewTodo={addNewTodo} />
+          </div>
 
-          <div>{todosShown}</div>
+          <br/>
+
+          <div style={{position: "relative", right: "165px"}}>
+            <TodoCategoryFilter categoryNames={categoryNames} selectedTodoCategory={selectedTodoCategory} handleCategorySelected={handleCategorySelected} />
+          </div>
+
+          <br/>
+          
+          {/* make items smaller and in a grid */}
+          <div style={{position: "relative", right: "200px"}}>
+            {todosShown}
+          </div>
         </div>
         )
 }
