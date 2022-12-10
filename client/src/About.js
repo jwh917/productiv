@@ -3,14 +3,6 @@ import React, { useState } from "react";
 import HabitsForm from "./HabitsForm";
 
 
-const deleteAccountButtonStyles = {
-  display: "inline-block",
-  width: "100%",
-  padding: "15px 0",
-  background: "white",
-  marginTop: "50px",
-  color: "red"
-};
 
 function About({user, setUser}) {
 
@@ -116,18 +108,25 @@ function About({user, setUser}) {
 
 // REFACTOR !!!! USER PROFILE UPDATE FORMS
 
-    <div>
+    <div className="aboutPage">
 
-      <br/>
+      {/* <br/> */}
 
       <div>
-      <h1>About User</h1>
+      <h1><u>About User</u></h1>
+      <span>
+        <button className="deleteAccountButton" onClick={handleDeleteUser}> DELETE ACCOUNT</button>
+      </span> 
+    
 
+      <br/>
+      <br/>
+      <br/>
       <br/>
 
 
       <form onSubmit={handleUpdateUser} >
-        <h2>Edit User Info Here</h2>
+        <h4><u>Edit User Info Here-</u></h4>
 
         <label htmlFor="name">User Name:</label>
         <input type="text" placeholder="User Name" id="username" value={usernameUpdate} onChange={(e) => setUsernameUpdate(e.target.value)}/>
@@ -136,9 +135,9 @@ function About({user, setUser}) {
         <input type="password" placeholder="Password" id="password" onChange={(e) => setPasswordUpdate(e.target.value)}/>
 
         <label htmlFor="ageGroup">Password Conformation:</label>
-        <input type="password" placeholder="Password Confirmation" id="passwordConfirmation" onChange={(e) => setPasswordConfirmationUpdate(e.target.value)}/>
+        <input type="password" placeholder="Password Conformation" id="passwordConfirmation" onChange={(e) => setPasswordConfirmationUpdate(e.target.value)}/>
 
-        <button className="formButton"> Edit User </button>
+        <button className="aboutPageButton"> Edit User </button>
 
         {/* {errors.map((err) => ( <h6 key={err}>{err}</h6>))} */}
 
@@ -146,17 +145,22 @@ function About({user, setUser}) {
 
       </div>
 
-      <br/>
-      <br/>
+
 
 
 
 
       <div>
         
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
 
       <form onSubmit={handleUpdateProfile}>
-        <h2>Edit Profile Info Here</h2>
+        <h4><u>Edit Profile Info Here-</u></h4>
 
         <label htmlFor="name">Name:</label>
         <input type="text" placeholder="Name" id="name"  value={nameUpdate} onChange={(e) => setNameUpdate(e.target.value)}/>
@@ -177,7 +181,7 @@ function About({user, setUser}) {
         <label htmlFor="bio">Bio:</label>
         <input type="text" placeholder="Bio" id="bio" value={bioUpdate} onChange={(e) => setBioUpdate(e.target.value)} />
 
-        <button className="formButton"> Edit Profile </button>
+        <button className="aboutPageButton"> Edit Profile </button>
 
         {/* {isLoading ? "Loading..." : "Signup"} */}
 
@@ -187,20 +191,16 @@ function About({user, setUser}) {
 
       </div>
 
-      <br/>
-      <br/>
+      {/* <br/>
+      <br/> */}
       {/* <br/> */}
-
-      <h2>Add Habits Here</h2>
 
       <span>
         <HabitsForm  user={user}/>
       </span>
 
 
-      <span>
-        <button style={deleteAccountButtonStyles} onClick={handleDeleteUser}> DELETE ACCOUNT</button>
-      </span>
+      
 
     </div>
 

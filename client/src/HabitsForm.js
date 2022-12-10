@@ -66,6 +66,9 @@ function HabitsForm({user}){
   
   return (
   <div>
+    {/* <br/> */}
+    <h4><u>Add Habits Here-</u></h4>
+
 
     <form onSubmit={handleSubmit}>
       <input
@@ -141,20 +144,19 @@ function HabitsForm({user}){
         <label htmlFor="Enough Sleep">Enough Sleep 🛌 | 🛏 </label>
 
 
-        <br/>
-        <br/>
-        <h3> Habits </h3>
-        <span >{checkedItems}</span>
-
-        <br/> 
-        <br/>
+        {/* <br/>
+        <br/> */}
+        {/* <br/> 
+        <br/> */}
         {errors.map((err) => ( <h6 key={err}>{err}</h6>))}
 
 
-        <button className="formButton" type="submit"> {isLoading ? "Loading..." : "Submit Habits"} </button>
+        <button className="aboutPageButton" type="submit"> {isLoading ? "Loading..." : "Submit Habits"} </button>
 
     </form>
        
+    {/* <p>{checkedItems}</p> */}
+
         
   </div>
        
