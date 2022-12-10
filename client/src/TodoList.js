@@ -4,7 +4,7 @@ import TodoCategoryFilter from "./TodoCategoryFilter";
 import NewTodoForm from "./NewTodoForm";
 
 
-function TodoList ({user, selectedTodos, categoryNames, selectedTodoCategory, handleCategorySelected, addNewTodo, handleDeleteTodo}) {
+function TodoList ({user, selectedTodos, categoryNames, handleCategorySelected, addNewTodo, handleDeleteTodo}) {
 
     const todosShown = selectedTodos.map((todo) => {
         const categoryId = todo.todo_category.id
@@ -22,6 +22,7 @@ function TodoList ({user, selectedTodos, categoryNames, selectedTodoCategory, ha
 
 
     return (
+
         <div>
           <div>
             <NewTodoForm user={user} categoryNames={categoryNames} addNewTodo={addNewTodo} />
@@ -29,14 +30,14 @@ function TodoList ({user, selectedTodos, categoryNames, selectedTodoCategory, ha
 
           <br/>
 
-          <div style={{position: "relative", right: "165px"}}>
-            <TodoCategoryFilter categoryNames={categoryNames} selectedTodoCategory={selectedTodoCategory} handleCategorySelected={handleCategorySelected} />
+          <div className="todoCategoryButtons">
+            <TodoCategoryFilter categoryNames={categoryNames} handleCategorySelected={handleCategorySelected} />
           </div>
 
           <br/>
           
           {/* make items smaller and in a grid */}
-          <div style={{position: "relative", right: "200px"}}>
+          <div className="todosListShown">
             {todosShown}
           </div>
         </div>

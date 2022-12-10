@@ -36,7 +36,6 @@ function TodoItem({ title, category, todoId, completed, handleDeleteTodo }) {
     return (
         <div >
             <h4><u>{category}</u> &emsp; | &emsp; -{title} &emsp; &emsp; 
-            {/* <h5> &emsp;  {title}  </h5>              */}
             Completed? ✅ &emsp; <button onClick={handleDelete}>❌</button>
             <input
               type="checkbox"

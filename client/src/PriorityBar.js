@@ -9,9 +9,11 @@ const ItemsContainer = styled.div`
   color: black;
   position: relative;
   background-color: white;
-  width: 100%;
-  height: 700px;
+  width: 350px;
+  height: 100px;
   border: 4px solid green;
+  right: 420px;
+  top: -150px;
 `;
 
 
@@ -82,23 +84,26 @@ function PriorityBar({user, priorities, priorityLevelNames, addNewPriority, hand
   
   
   return (
-    <div>
+    <div >
 
     
-      <h3> New Priority Form</h3>
+      <h3><u>New Priority Form</u></h3>
       <NewPriorityForm user={user} priorityLevelNames={priorityLevelNames} addNewPriority={addNewPriority}/>
 
       <br/>
       <br/>
-
+      {/* grid and make items smaller */}
       <ItemsContainer>
         {prioritiesShown}
       </ItemsContainer>
 
         <br/>
         <br/> 
+        <br/> 
+        <br/> 
 
-
+      <div className="priorityLevelsContainer">
+        <div className="vl"></div>
         <h2>Critical</h2>
         <div className="vl"></div>
         <h2>Major</h2>
@@ -108,6 +113,7 @@ function PriorityBar({user, priorities, priorityLevelNames, addNewPriority, hand
         <h2>Minor</h2>
         <div className="vl"></div>
 
+      </div>
 
 
       <br/>

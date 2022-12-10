@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const linkStyles = {
+const buttonStyles = {
   display: "inline-block",
   width: "80px",
   textAlign: "center",
@@ -14,12 +14,12 @@ const linkStyles = {
 };
 
 
-function TodoCategoryFilter({ categoryNames, selectedCategory, handleCategorySelected }) {
+function TodoCategoryFilter({ categoryNames, handleCategorySelected }) {
    
     const categoryButtons = categoryNames.map((category) => {
         return (<button
             key={category}
-            style={linkStyles}
+            style={buttonStyles}
             onClick={() => (handleCategorySelected(category))}
             >
           {category}

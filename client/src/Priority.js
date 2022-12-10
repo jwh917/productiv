@@ -42,9 +42,16 @@ function Priority({user}){
 
   
   return (
-    <div>
-      <h1>PriorityBar</h1>
-      <h2>Organize Your Priorities</h2>
+    <div className="priorityPage">
+      <h1><u>PriorityBar</u></h1>
+      <div>
+        <br/>
+        <br/>
+        <br/>
+
+        <h2 className="priorityHeader"><u>Organize Your Priorities</u></h2>
+
+      </div>
 
       <br/>
 
