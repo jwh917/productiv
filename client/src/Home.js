@@ -17,8 +17,17 @@ function Home({user}) {
   function mornAfterEve(){
     const date = new Date()
     const hour = date.getHours();
-    const wish = `Good ${(hour < 12 && 'Morning 🌇') || (hour < 17 && 'Afternoon/Evening 🏙') || 'Night 🌃'}`;
-    return wish
+    const wish = `Good ${(hour < 12 && 'Morning! 🌇') || (hour < 17 && 'Afternoon/Evening! 🏙') || 'Night! 🌃'}`;
+
+    let today = new Date();
+    const dd = String(today.getDate()).padStart(2, '0');
+    const mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    const yyyy = today.getFullYear();
+
+    today = mm + '/' + dd + '/' + yyyy;
+    return   <span> <h2> {wish} <br/> <br/> {today}</h2> </span>
+    
+   
   }
 
 
@@ -30,29 +39,52 @@ function Home({user}) {
 
 
   return (
-    <div>
-      <h1>Home</h1>
-      <h2>{mornAfterEve()}</h2>
+    <div className="homePage">
+      <div>
+        <h1><u>Home</u></h1>
+      </div>
+  
+      <div style={{marginLeft: "-80px"}}>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <span>
+          <h2>{mornAfterEve()}</h2>
+        </span>
 
-      <label htmlFor="Notifications">Notifications </label>
+        <h3><u>Notifications</u></h3>
 
-      <ul>
-        <li>Check Todo List</li>
-        <li>Set up Priority Bar</li>
-        <li>If you haven't already</li>
-      </ul>
+        <ul>
+          <li>Check Todo List</li>
+          <li>Set up Priority Bar</li>
+          <li>If you haven't already</li>
+        </ul>
+      </div>
 
       <br/>
+      <br/>
+      <br/>
+      <br/>
+
+      <div>
+        <br/>
+        <br/>
+        <h2><u>Previous Daily Habits</u></h2>
+
+        <UserHabits habits={habits} handleDelHabit={handleDelHabit}/>
+
+      </div>
 
       
-      <h2>Previous Daily Habits</h2>
 
-      <UserHabits habits={habits} handleDelHabit={handleDelHabit}/>
 
       <br/>
 
       <div> 
-        <h3>ProDucTiv Board</h3>
+        <h3><u>ProDucTiv Board</u></h3>
 
         <h5>The 15 Best Productivity Blogs to Read in 2022</h5>
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8nzvJMPP9j73Sc2zHwN65X6QAtAzhAyZpBQ&usqp=CAU" alt="productiveImg"/>

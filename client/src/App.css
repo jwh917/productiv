@@ -87,15 +87,6 @@
   cursor: pointer;
 }
 
-/* .App-logo {
-  height: 40vmin;
-  pointer-events: none;
-} */
-
-
-/* .editProfileForm{
-
-} */
 
 /* profileForm */
 
@@ -195,8 +186,6 @@
   display: flex;
   justify-content: center;
   column-gap: 10px;
-
-  
 }
 
 .aboutPage *{
@@ -206,12 +195,12 @@
   outline: none;
   border: none;
 }
+
 .aboutPage h2{
   font-size: 25px;
   font-weight: 500;
   line-height: 42px;
   text-align: center;
-  
 }
 
 .aboutPage label{
@@ -264,10 +253,59 @@
 }
 
 
+/* homePage */
+
+.homePage{
+  height: 650px;
+  width: 770px;
+  background-color: darkgreen;
+  position: absolute;
+  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 65%;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255,255,255,0.1);
+  box-shadow: 0 0 40px rgba(8,7,16,0.6);
+  padding: 50px 35px;
+  display: flex;
+  justify-content: center;
+  column-gap: 10px;
+}
+
+.homePage *{
+  font-family: 'Poppins',sans-serif;
+  color: black;
+  letter-spacing: 0.5px;
+  outline: none;
+  border: none;
+}
+
+.homePage h1{
+  font-size: 35px;
+  font-weight: 600;
+  line-height: 40px;
+  text-align: center;
+}
+
+.homePage h2{
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 40px;
+  text-align: center;
+}
 
 
 
 
+
+
+
+
+.vl {
+  border-left: 6px solid green;
+  height: 500px;
+}
 
 
 

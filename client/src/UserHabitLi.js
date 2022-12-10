@@ -16,7 +16,7 @@ function UserHabitLi({habit, handleDelHabit}){
   
   return (
     <span>
-      <li key={habit.id}> {habit.created_at.slice(0, 10)} - {habit.title} &emsp; <sup onClick={handleDeleteClick}>X</sup> <br/> <br/>  </li>
+      <li key={habit.id}> {habit.created_at.slice(0, 10)} <br/> {habit.title} <br/><br/> <button onClick={handleDeleteClick}>X</button> <br/> <br/>  </li>
     </span>
   );
 }
