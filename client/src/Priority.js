@@ -6,7 +6,6 @@ import PriorityBar from "./PriorityBar";
 function Priority({user}){
 
   const [priorities, setPriorities] = useState([]);
-  const [priorityLevels, setPriorityLevels] = useState([]);
   const [priorityLevelNames, setPriorityLevelNames] = useState([]);
 
 
@@ -24,7 +23,6 @@ function Priority({user}){
     fetch("/priorty_levels")
       .then((r) => r.json())
       .then((priorityLevels) => {
-        setPriorityLevels(priorityLevels)
         const priorityLevelsNames = priorityLevels.map(priorityLevel => priorityLevel.name)
         setPriorityLevelNames(priorityLevelsNames)})
   }, []);

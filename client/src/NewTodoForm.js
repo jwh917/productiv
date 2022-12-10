@@ -28,6 +28,13 @@ function NewTodoForm({user, categoryNames, addNewTodo}) {
         event.preventDefault()
         setErrors([]);
 
+        const newTodo = {
+          user_id: user.id,              
+          todo_category_id: newItemCategoryId,
+          title: newItemTitle,
+          completed: false
+        }
+
 
 
         fetch("/todos", {
@@ -35,12 +42,7 @@ function NewTodoForm({user, categoryNames, addNewTodo}) {
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify({
-              user_id: user.id,              
-              todo_category_id: newItemCategoryId,
-              title: newItemTitle,
-              completed: false
-            }),
+            body: JSON.stringify(newTodo),
           })
           .then((r) => {
             if (r.ok) {
@@ -52,6 +54,8 @@ function NewTodoForm({user, categoryNames, addNewTodo}) {
               r.json().then((err) => setErrors(err.errors));
             }
           })
+
+          event.target.reset()
            
     }
 

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {useHistory} from "react-router-dom";
+// import {useHistory} from "react-router-dom";
 import LogoutButton from "./LogoutButton";
 
 
@@ -8,9 +8,9 @@ function ProfileForm({ user, setUser }) {
 
   const {id, username} = user
 
-  // console.log(id)
+  console.log(user)
   // console.log(username)
-  const history = useHistory();  
+  // const history = useHistory();  
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -25,28 +25,37 @@ function ProfileForm({ user, setUser }) {
     e.preventDefault();
     setErrors([]);
     setIsLoading(true);
+
+    const newProfile =       
+    {
+      user_id: id,
+      name,
+      email,
+      age_group: ageGroup,
+      start_day: startDay,
+      end_day: endDay,
+      bio
+    }
+
     fetch("/profiles", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        user_id: id,
-        name,
-        email,
-        age_group: ageGroup,
-        start_day: startDay,
-        end_day: endDay,
-        bio
-      }),
+      body: JSON.stringify(newProfile),
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
-        history.push("/about")
-        r.json().then((profile) => console.log(profile) );
+        r.json().then((newProfile) => {
+          console.log(newProfile)
+          setUser({...user, profile: newProfile})
+        } );
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
+      
+      // history.push("/")
+
     });
   }
 
@@ -54,9 +63,9 @@ function ProfileForm({ user, setUser }) {
 
     <div>
       
-      {/* <h3>Username: {username} </h3> */}
+      <h3>Username: {username} </h3>
       {/* LOGOUT BUTTON  */}
-      {/* <LogoutButton setUser={setUser}/> */}
+      <LogoutButton setUser={setUser}/>
 
       <hr/>
 

@@ -17,13 +17,13 @@ function About({user, setUser}) {
   const {username} = user
   console.log(user)
 
-  const [profile, setProfile] = useState(user.profile);
+  // const [profile, setProfile] = useState(user.profile);
 
 
 
 
-  console.log(profile)
-  const {id, user_id, name, email, age_group, start_day, end_day, bio} = profile
+  // console.log(profile)
+  const {id, user_id, name, email, age_group, start_day, end_day, bio} = user.profile
 
 // maybe errors
   const [usernameUpdate, setUsernameUpdate] = useState(username);
@@ -41,22 +41,22 @@ function About({user, setUser}) {
   function handleUpdateUser(e){
     e.preventDefault()
 
+    const updatedUserInfo =       
+    {
+      "username": usernameUpdate,
+      "password": passwordUpdate,
+      "password_confirmation": passwordConfirmationUpdate
+    }
+
     fetch("/me", {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(
-        {
-        "username": usernameUpdate,
-        "password": passwordUpdate,
-        "password_confirmation": passwordConfirmationUpdate
-        }
-      ),
+      body: JSON.stringify(updatedUserInfo),
     })
       .then((r) => r.json())
-      .then((r) => console.log(r))
-      
+      .then((updatedUserInfo) => setUser(updatedUserInfo)) 
   }
 
 
@@ -107,7 +107,7 @@ function About({user, setUser}) {
       body: JSON.stringify(updatedProfile),
     })
       .then((r) => r.json())
-      .then((updatedProfile) => console.log(updatedProfile))
+      .then((updatedProfile) => setUser({...user, profile: updatedProfile}))
       
   }
 

@@ -15,7 +15,6 @@ class ProfilesController < ApplicationController
   end
 
   def create
-    # profile = Profile.create!(pro_params)
     profile = Profile.create!(pro_params)
     render json: profile, status: :created
   # rescue ActiveRecord::RecordInvalid => invalid

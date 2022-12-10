@@ -4,6 +4,8 @@ import UserHabits from "./UserHabits";
 
 function Home({user}) {
 
+  console.log(user)
+
   const [habits, setHabits] = useState([]);
 
   useEffect(() => {
@@ -12,12 +14,10 @@ function Home({user}) {
       .then(setHabits);
   }, []);
 
-  const {start_day, end_day} = user
-
-  function mornAfterEve(start_day, end_day){
+  function mornAfterEve(){
     const date = new Date()
     const hour = date.getHours();
-    const wish = `Time To ${(hour >= start_day && 'Start Your Day!') || (hour < end_day && 'Afternoon/Evening') || 'End Your Day'} `;
+    const wish = `Good ${(hour < 12 && 'Morning 🌇') || (hour < 17 && 'Afternoon/Evening 🏙') || 'Night 🌃'}`;
     return wish
   }
 
@@ -32,7 +32,7 @@ function Home({user}) {
   return (
     <div>
       <h1>Home</h1>
-      <h2>{mornAfterEve(start_day, end_day)}</h2>
+      <h2>{mornAfterEve()}</h2>
 
       <label htmlFor="Notifications">Notifications </label>
 
