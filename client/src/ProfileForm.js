@@ -63,13 +63,13 @@ function ProfileForm({ user, setUser }) {
 
     <div>
       
-      <h3>Username: {username} </h3>
+      <h1>Username: {username} </h1>
       {/* LOGOUT BUTTON  */}
       <LogoutButton setUser={setUser}/>
 
       <hr/>
 
-      <form onSubmit={handleSubmit} style={{"height" : "800px"}}>
+      <form className="profileForm" onSubmit={handleSubmit} >
         <h2>Fill Out Profile Here</h2>
 
         <label htmlFor="name">Name: </label>
@@ -91,7 +91,7 @@ function ProfileForm({ user, setUser }) {
         <label htmlFor="bio">Bio: </label>
         <input type="text" placeholder="Bio" id="bio" value={bio} onChange={(e) => setBio(e.target.value)}/>
 
-        <button className="formButton"> {isLoading ? "Loading..." : "Signup"} </button>
+        <button className="profileFormButton"> {isLoading ? "Loading..." : "Signup"} </button>
 
         {errors.map((err) => ( <h6 key={err}>{err}</h6>))}
 
