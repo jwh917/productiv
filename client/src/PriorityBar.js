@@ -14,17 +14,17 @@ const ItemsContainer = styled.div`
   border: 4px solid green;
   right: 420px;
   top: -150px;
+  display: flex;
+  justify-content: space-evenly;
 `;
 
 
 function PriorityBar({user, priorities, priorityLevelNames, addNewPriority, handleDeleteTodo}){
 
   const [positions, setPositions] = useState({});
-  // const [hasLoaded, setHasLoaded] = useState(false);
   const nodeRef = useRef(null);
 
 
-  // set the ref value
 
   useEffect(() => {
     const existingDivPositions = JSON.parse(
@@ -32,17 +32,11 @@ function PriorityBar({user, priorities, priorityLevelNames, addNewPriority, hand
     );
 
     setPositions(existingDivPositions);
-    // setHasLoaded(true);
     console.log(existingDivPositions);
     console.log("has loaded");
   }, []);
 
   function handleStop(e, data) {
-    // console.log(e)
-    // console.log(data)
-    // console.log(data.x)
-    // console.log(data.y)
-    // console.log(data.node)
     let dummyPositions = { ...positions };
     const itemId = e.target.id;
     dummyPositions[itemId] = {};
@@ -54,13 +48,6 @@ function PriorityBar({user, priorities, priorityLevelNames, addNewPriority, hand
   useEffect(() => {
     localStorage.setItem(`positions_div`, JSON.stringify(positions));
   }, [positions]);
-
-
-  // console.log(positions)
-  // console.log(  exampleRef.current)
-  // console.log(priorities)
-  // console.log(priorityLevels)
-  // console.log(priorityLevelNames)
 
 
 
@@ -80,8 +67,6 @@ function PriorityBar({user, priorities, priorityLevelNames, addNewPriority, hand
 })
 
 
-
-  
   
   return (
     <div >
@@ -92,7 +77,6 @@ function PriorityBar({user, priorities, priorityLevelNames, addNewPriority, hand
 
       <br/>
       <br/>
-      {/* grid and make items smaller */}
       <ItemsContainer>
         {prioritiesShown}
       </ItemsContainer>
@@ -103,14 +87,14 @@ function PriorityBar({user, priorities, priorityLevelNames, addNewPriority, hand
         <br/> 
 
       <div className="priorityLevelsContainer">
-        <div className="vl"></div>
-        <h2>Critical</h2>
-        <div className="vl"></div>
-        <h2>Major</h2>
-        <div className="vl"></div>
-        <h2>Medium</h2>
-        <div className="vl"></div>
-        <h2>Minor</h2>
+        <div className="vl"><h2>Critical</h2></div>
+        
+        <div className="vl"><h2>Major</h2></div>
+        
+        <div className="vl"><h2>Medium</h2></div>
+        
+        <div className="vl"><h2>Minor</h2></div>
+       
         <div className="vl"></div>
 
       </div>

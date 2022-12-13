@@ -1,7 +1,5 @@
 import React from "react";
-
 import styled from "styled-components";
-
 import Draggable from "react-draggable";
 
 
@@ -9,11 +7,12 @@ const ExampleDiv = styled.div`
   position: relative;
   background-color: darkgray;
   color: white;
-  padding: 0.5em 1em;
-  width: 15%;
-  height: 260px;
+  padding: 1px 5px;
+  height: 250px;
   margin: 0.3em;
   cursor: move;
+  text-align: center;
+  width: fit-content;
 `;
 
 function PriorityItem({priorty, priorityLevel, positions, nodeRef, handleStop, handleDeleteTodo}){
@@ -65,15 +64,14 @@ function handleDelete() {
             >
               <div ref={nodeRef}>
                 <ExampleDiv id={priorty[5]}>
-                  <h5>PriorityLevel: {priorityLevel}</h5>
-                  {priorityLevelColor(priorityLevel)}<sup>{priorty_level_id}</sup>
-                  <h6>{title} &emsp; <button onClick={handleDelete}>X</button></h6>
+                  <h5>{priorityLevel}{priorityLevelColor(priorityLevel)}<sup>{priorty_level_id}</sup></h5>
+                  <h4>{title}</h4>
                   <p> - {comment}</p>
-                  {/* <button>X</button> */}
+                  <button onClick={handleDelete}>X</button>               
                 </ExampleDiv>
               </div>
-            </Draggable>
-            </>
+      </Draggable>
+      </>
   );
 }
 export default PriorityItem;

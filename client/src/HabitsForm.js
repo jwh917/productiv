@@ -25,7 +25,6 @@ function HabitsForm({user}){
     }
     setChecked(newHabit)
 
-
   }
 
 
@@ -34,8 +33,6 @@ function HabitsForm({user}){
       return total + ", " + item;
     })
   : "";
-
-
 
 
   function handleSubmit(e) {
@@ -66,9 +63,7 @@ function HabitsForm({user}){
   
   return (
   <div>
-    {/* <br/> */}
     <h4><u>Add Habits Here-</u></h4>
-
 
     <form onSubmit={handleSubmit}>
       <input
@@ -143,20 +138,12 @@ function HabitsForm({user}){
         />
         <label htmlFor="Enough Sleep">Enough Sleep 🛌 | 🛏 </label>
 
-
-        {/* <br/>
-        <br/> */}
-        {/* <br/> 
-        <br/> */}
         {errors.map((err) => ( <h6 key={err}>{err}</h6>))}
 
 
         <button className="aboutPageButton" type="submit"> {isLoading ? "Loading..." : "Submit Habits"} </button>
 
     </form>
-       
-    {/* <p>{checkedItems}</p> */}
-
         
   </div>
        

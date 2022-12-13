@@ -8,9 +8,6 @@ function ProfileForm({ user, setUser }) {
 
   const {id, username} = user
 
-  console.log(user)
-  // console.log(username)
-  // const history = useHistory();  
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -54,7 +51,6 @@ function ProfileForm({ user, setUser }) {
         r.json().then((err) => setErrors(err.errors));
       }
       
-      // history.push("/")
 
     });
   }
@@ -64,7 +60,6 @@ function ProfileForm({ user, setUser }) {
     <div>
       
       <h1>Username: {username} </h1>
-      {/* LOGOUT BUTTON  */}
       <LogoutButton setUser={setUser}/>
 
       <hr/>
@@ -78,7 +73,6 @@ function ProfileForm({ user, setUser }) {
         <label htmlFor="email">Email:</label>
         <input type="email" placeholder="Email" id="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
 
-        {/* Change to be selected */}
         <label htmlFor="ageGroup">Age Group: </label>
         <input type="text" placeholder="Age Group" id="ageGroup" value={ageGroup} onChange={(e) => setAgeGroup(e.target.value)}/>
 

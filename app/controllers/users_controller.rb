@@ -2,9 +2,7 @@ class UsersController < ApplicationController
   skip_before_action :authorize, only: [:create]
 
   def index
-    # users = User.all
-    # render json: @current_user, include: :profile
-    render json: User.all
+    render json: @current_user
   end
 
   def create
@@ -14,13 +12,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    # if !@current_user
-    #   render json: { errors: ["Not signed in"] }
-    # else 
-    #   render json: @current_user
-    # end
-    # user = @current_user
-    # byebug
     render json: @current_user
   end
 
@@ -28,13 +19,6 @@ class UsersController < ApplicationController
     user = @current_user
     user.update(user_params)
     render json: user
-
-    # @current_user.update(pro_params)
-    # render json: @current_user
-    # updated status
-    # stop patch from giving empty string for title or null for completed
-  # rescue ActiveRecord::RecordInvalid => invalid
-  #   render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
   end 
 
   def destroy

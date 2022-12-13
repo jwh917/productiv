@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import HabitsForm from "./HabitsForm";
 
 
@@ -7,17 +6,9 @@ import HabitsForm from "./HabitsForm";
 function About({user, setUser}) {
 
   const {username} = user
-  console.log(user)
 
-  // const [profile, setProfile] = useState(user.profile);
-
-
-
-
-  // console.log(profile)
   const {id, user_id, name, email, age_group, start_day, end_day, bio} = user.profile
 
-// maybe errors
   const [usernameUpdate, setUsernameUpdate] = useState(username);
   const [passwordUpdate, setPasswordUpdate] = useState("");
   const [passwordConfirmationUpdate, setPasswordConfirmationUpdate] = useState("");
@@ -51,11 +42,7 @@ function About({user, setUser}) {
       .then((updatedUserInfo) => setUser(updatedUserInfo)) 
   }
 
-
-// // delete user
-// Alert are you sure you wanna delete your account - yes | no
-// if yes delete
-// if no close alert 
+  
   function handleDeleteUser() {
 
     fetch("/logout", { method: "DELETE" }).then((r) => {
@@ -75,7 +62,6 @@ function About({user, setUser}) {
 
   }
 
-// patch profile
   function handleUpdateProfile(e){
     e.preventDefault()
 
@@ -106,11 +92,7 @@ function About({user, setUser}) {
 
   return (
 
-// REFACTOR !!!! USER PROFILE UPDATE FORMS
-
     <div className="aboutPage">
-
-      {/* <br/> */}
 
       <div>
       <h1><u>About User</u></h1>
@@ -118,12 +100,10 @@ function About({user, setUser}) {
         <button className="deleteAccountButton" onClick={handleDeleteUser}> DELETE ACCOUNT</button>
       </span> 
     
-
       <br/>
       <br/>
       <br/>
       <br/>
-
 
       <form onSubmit={handleUpdateUser} >
         <h4><u>Edit User Info Here-</u></h4>
@@ -139,16 +119,9 @@ function About({user, setUser}) {
 
         <button className="aboutPageButton"> Edit User </button>
 
-        {/* {errors.map((err) => ( <h6 key={err}>{err}</h6>))} */}
-
       </form>
 
       </div>
-
-
-
-
-
 
       <div>
         
@@ -168,7 +141,6 @@ function About({user, setUser}) {
         <label htmlFor="email">Email:</label>
         <input type="email" placeholder="Email" id="email"  value={emailUpdate} onChange={(e) => setEmailUpdate(e.target.value)} />
 
-        {/* Change to be selected */}
         <label htmlFor="ageGroup">Age Group:</label>
         <input type="text" placeholder="Age Group" id="ageGroup" value={ageGroupUpdate} onChange={(e) => setAgeGroupUpdate(e.target.value)} />
 
@@ -183,24 +155,16 @@ function About({user, setUser}) {
 
         <button className="aboutPageButton"> Edit Profile </button>
 
-        {/* {isLoading ? "Loading..." : "Signup"} */}
-
-        {/* {errors.map((err) => ( <h6 key={err}>{err}</h6>))} */}
 
       </form>
 
       </div>
 
-      {/* <br/>
-      <br/> */}
-      {/* <br/> */}
 
       <span>
         <HabitsForm  user={user}/>
       </span>
 
-
-      
 
     </div>
 

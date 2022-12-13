@@ -3,7 +3,6 @@ import Login from "./Login";
 import ProfileForm from "./ProfileForm";
 import './App.css';
 import { Switch, Route } from "react-router-dom";
-
 import Home from "./Home";
 import About from "./About";
 import Todo from "./Todo";
@@ -12,14 +11,10 @@ import Priority from "./Priority";
 
 
 
-
-
 function App() {
 
   const [user, setUser] = useState(null);
   
-  
-
 
   useEffect(() => {
 
@@ -33,28 +28,16 @@ function App() {
   }, []);
 
 
- 
-
-
   if (!user) return <Login setUser={setUser} />;
 
-  // console.log(user)
-  // console.log(user.profile)
 
- 
   if (user.profile === null) return <ProfileForm user={user} setUser={setUser} />
-
-
-  // console.log(user)
-
-
 
 
   return (
     <div className="App">
       <header className="App-header">     
 
-      
         <>
         <NavBar user={user} setUser={setUser}/>
         <Switch>

@@ -18,10 +18,6 @@ function NewTodoForm({user, categoryNames, addNewTodo}) {
       setNewItemCategoryId(categoryNames.indexOf(event.target.value))
     }
 
-    // console.log(newItemCategoryId)
-
-    console.log(user)
-
 
 
     function handleSubmit(event) {

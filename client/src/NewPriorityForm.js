@@ -64,7 +64,7 @@ function NewPriorityForm({user, priorityLevelNames, addNewPriority}) {
                 Comment: <input type="text" onChange={(e) => setNewItemComment(e.target.value)} value={newItemComment}></input>
             </label>
             <br/>
-                <label> Priority Levels: <select onChange={handleSelectedLevel}>
+                <label> Priority Level: <select onChange={handleSelectedLevel}>
                 <option>Choose a Priority Level</option>
                         {options}
                     </select>

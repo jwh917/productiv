@@ -36,7 +36,6 @@ function TodoList ({user, selectedTodos, categoryNames, handleCategorySelected, 
 
           <br/>
           
-          {/* make items smaller and in a grid */}
           <div className="todosListShown">
             {todosShown}
           </div>

@@ -32,10 +32,6 @@ function Todo({user}) {
   }, []);
 
 
-  // console.log(todos)
-  // console.log(todoCategories)
-  // console.log(categoryNames)
-
 
   function handleCategorySelected(category) {
     setSelectedCategory(category)

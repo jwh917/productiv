@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
-
 import UserHabits from "./UserHabits";
 
 function Home({user}) {
-
-  console.log(user)
 
   const [habits, setHabits] = useState([]);
 
@@ -26,8 +23,7 @@ function Home({user}) {
 
     today = mm + '/' + dd + '/' + yyyy;
     return   <span> <h2> {wish} <br/> <br/> {today}</h2> </span>
-    
-   
+  
   }
 
 
@@ -77,9 +73,6 @@ function Home({user}) {
         <UserHabits habits={habits} handleDelHabit={handleDelHabit}/>
 
       </div>
-
-      
-
 
       <br/>
 

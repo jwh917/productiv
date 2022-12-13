@@ -28,10 +28,6 @@ function Priority({user}){
   }, []);
 
 
-  // console.log(priorities)
-  // console.log(priorityLevels)
-  // console.log(priorityLevelNames)
-
   function addNewPriority(newPriority) {
     setPriorities([...priorities, newPriority])
   }
