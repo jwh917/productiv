@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+# Productiv
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+A Rails backend, web API that supports a frontend React application. An application that can help users keep their lives in order and have more productive days. This application enables different users to make a profile, have a selection of different habits to choose from, create priorities to be placed on a priority bar and todos on a todo list.
 
-In the project directory, you can run:
+## Built With
 
-### `npm start`
+- HTML
+- CSS
+- Javascript
+- React, this project was bootstrapped with Create React App.
+- Ruby
+- Rails
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Features
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+### This application navigates between a few different pages:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1.  Sign In/Sign Up page
 
-### `npm run build`
+-   Allows users to smoothly sign in or up with the application.
+-   Username and password for current users and new users must create a new username and password.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2.   New Profile page
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+-   Allows users to create a profile with ease for the application.
+-   A user can also logout if needed, on sign up user will return to Profile page. User must have a profile in application.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3.  About Page
 
-### `npm run eject`
+-   Allows users to update their information: user information, profile information.
+-   Create user habits.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+4.  Home Page
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+-   Users is able to view there notifications as well as they’re previous daily habits.
+-   Habits can be deleted with a click and a user can also view the ProDucTiv Board for productivity and positive articles/blog posts
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+5.  Todo List
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+-   Users can create todos to be add to the list. Todos can be completed and removed  habits.
+-   The list also has the capability to filter the todo list based on different categories
 
-## Learn More
+6.   Priority Bar
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+-   Users can priorities to be add to the priority bar.
+-   Priorities can be dragged to the priority level and removed

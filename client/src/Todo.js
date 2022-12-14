@@ -18,7 +18,7 @@ function Todo({user}) {
         res.json().then((todos) => setTodos(todos));
       }
     });
-  }, []);
+  }, [selectedCategory]);
 
 
   useEffect(() => {

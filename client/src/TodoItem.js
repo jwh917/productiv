@@ -20,7 +20,10 @@ function TodoItem({ title, category, todoId, completed, handleDeleteTodo }) {
       },
     })
       .then((response) => response.json())
-      .then((json) => console.log(json));
+      .then((todo) => {
+        setIsCompleted(todo.completed)
+      
+      });
 
   }
 
