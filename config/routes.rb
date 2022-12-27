@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
 
-  resources :priorties
+  resources :priorities
 
-  resources :priorty_levels, only: [:index, :show] 
+  resources :priority_levels, only: [:index, :show, :create] 
 
   resources :todos
 
-  resources :todo_categories, only: [:index, :show] 
+  resources :todo_categories, only: [:index, :show, :create] 
 
   resources :habits
 
@@ -25,6 +25,8 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
 
   delete "/logout", to: "sessions#destroy"
+
+  get "/hothogs/:search", to: "users#lookup"
 
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!

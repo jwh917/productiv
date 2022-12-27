@@ -15,10 +15,9 @@ const ExampleDiv = styled.div`
   width: fit-content;
 `;
 
-function PriorityItem({priorty, priorityLevel, positions, nodeRef, handleStop, handleDeleteTodo}){
+function PriorityItem({priority, priorityLevel, positions, nodeRef, handleStop, handlePriorityDelete}){
   
-  console.log(priorty)
-  const {id, priorty_level_id, title, comment} = priorty
+  const {id, priority_level_id, title, comment} = priority
 
 function priorityLevelColor(priorityLevel){
   if(priorityLevel === "Critical"){
@@ -38,12 +37,11 @@ function priorityLevelColor(priorityLevel){
 
 
 function handleDelete() {
-  fetch(`priorties/${id}`, {
+  fetch(`priorities/${id}`, {
       method: "DELETE"
   });
-  handleDeleteTodo(id)
+  handlePriorityDelete(id)
 }
-
 
 
 
@@ -53,18 +51,18 @@ function handleDelete() {
               defaultPosition={
                 positions === null
                   ? { x: 0, y: 0 }
-                  : !positions[priorty]
+                  : !positions[priority]
                   ? { x: 0, y: 0 }
-                  : { x: positions[priorty].x, y: positions[priorty].y }
+                  : { x: positions[priority].x, y: positions[priority].y }
               }
               position={null}
-              key={priorty[5]}
+              key={priority[5]}
               nodeRef={nodeRef}
               onStop={handleStop}
             >
               <div ref={nodeRef}>
-                <ExampleDiv id={priorty[5]}>
-                  <h5>{priorityLevel}{priorityLevelColor(priorityLevel)}<sup>{priorty_level_id}</sup></h5>
+                <ExampleDiv id={priority[5]}>
+                  <h5>{priorityLevel}{priorityLevelColor(priorityLevel)}<sup>{priority_level_id}</sup></h5>
                   <h4>{title}</h4>
                   <p> - {comment}</p>
                   <button onClick={handleDelete}>X</button>               

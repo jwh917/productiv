@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import {useHistory} from "react-router-dom";
+import {useHistory} from "react-router-dom";
 import LogoutButton from "./LogoutButton";
 
 
@@ -8,6 +8,8 @@ function ProfileForm({ user, setUser }) {
 
   const {id, username} = user
 
+
+  const history = useHistory();  
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -51,6 +53,7 @@ function ProfileForm({ user, setUser }) {
         r.json().then((err) => setErrors(err.errors));
       }
       
+      history.push("/about")
 
     });
   }

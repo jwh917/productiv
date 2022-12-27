@@ -48,19 +48,19 @@ u2td2 = Todo.create(user_id: u2.id, todo_category_id: home.id, title: "Drink", c
 u2td3 = Todo.create(user_id: u2.id, todo_category_id: money.id, title: "Spend", completed: false)
 
 
-PriortyLevel.destroy_all
-pl1 = PriortyLevel.create(name: "Critical")
-pl2 = PriortyLevel.create(name: "Major")
-pl3 = PriortyLevel.create(name: "Medium")
-pl4 = PriortyLevel.create(name: "Minor")
+PriorityLevel.destroy_all
+pl1 = PriorityLevel.create(name: "Critical")
+pl2 = PriorityLevel.create(name: "Major")
+pl3 = PriorityLevel.create(name: "Medium")
+pl4 = PriorityLevel.create(name: "Minor")
 
 
-Priorty.destroy_all
-u1p1 = Priorty.create(user_id: u1.id, priorty_level_id: pl3.id, title: "Family", comment: "Vaca")
-u1p2 = Priorty.create(user_id: u1.id, priorty_level_id: pl2.id, title: "Work", comment: "Meetings")
+Priority.destroy_all
+u1p1 = Priority.create(user_id: u1.id, priority_level_id: pl3.id, title: "Family", comment: "Vaca")
+u1p2 = Priority.create(user_id: u1.id, priority_level_id: pl2.id, title: "Work", comment: "Meetings")
 
-u2p1 = Priorty.create(user_id: u2.id, priorty_level_id: pl4.id, title: "School", comment: "Read")
-u2p2 = Priorty.create(user_id: u2.id, priorty_level_id: pl1.id, title: "Lacrosse", comment: "Work Out")
+u2p1 = Priority.create(user_id: u2.id, priority_level_id: pl4.id, title: "School", comment: "Read")
+u2p2 = Priority.create(user_id: u2.id, priority_level_id: pl1.id, title: "Lacrosse", comment: "Work Out")
 
 
 

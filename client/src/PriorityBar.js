@@ -19,7 +19,8 @@ const ItemsContainer = styled.div`
 `;
 
 
-function PriorityBar({user, priorities, priorityLevelNames, addNewPriority, handleDeleteTodo}){
+function PriorityBar({user, priorities, priorityLevelNames, addNewPriority, handlePriorityDelete}){
+
 
   const [positions, setPositions] = useState({});
   const nodeRef = useRef(null);
@@ -51,17 +52,17 @@ function PriorityBar({user, priorities, priorityLevelNames, addNewPriority, hand
 
 
 
-  const prioritiesShown = priorities.map((priorty) => {
-    const priortyLevelId = priorty.priorty_level_id - 1
+  const prioritiesShown = priorities.map((priority) => {
+    const priorityLevelId = priority.priority_level_id - 1
     return (
         <PriorityItem
-            key={priorty.title}
-            priorty={priorty}
-            priorityLevel={priorityLevelNames[priortyLevelId]}
+            key={priority.title}
+            priority={priority}
+            priorityLevel={priorityLevelNames[priorityLevelId]}
             positions={positions}
             nodeRef={nodeRef}
             handleStop={handleStop}
-            handleDeleteTodo={handleDeleteTodo}
+            handlePriorityDelete={handlePriorityDelete}
         />
     )
 })

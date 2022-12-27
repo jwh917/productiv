@@ -10,7 +10,7 @@ function Priority({user}){
 
 
   useEffect(() => {
-    fetch("/priorties")
+    fetch("/priorities")
       .then((res) => {
       if (res.ok) {
         res.json().then((priorities) => setPriorities(priorities));
@@ -20,7 +20,7 @@ function Priority({user}){
 
 
   useEffect(() => {
-    fetch("/priorty_levels")
+    fetch("/priority_levels")
       .then((r) => r.json())
       .then((priorityLevels) => {
         const priorityLevelsNames = priorityLevels.map(priorityLevel => priorityLevel.name)
@@ -28,11 +28,12 @@ function Priority({user}){
   }, []);
 
 
+
   function addNewPriority(newPriority) {
     setPriorities([...priorities, newPriority])
   }
 
-  function handleDeleteTodo(deletedPriorityId) {
+  function handlePriorityDelete(deletedPriorityId) {
     setPriorities(priorities.filter((priority) => (priority.id !== deletedPriorityId)))
   }
 
@@ -51,7 +52,7 @@ function Priority({user}){
 
       <br/>
 
-      <PriorityBar user={user} priorities={priorities} priorityLevelNames={priorityLevelNames} addNewPriority={addNewPriority} handleDeleteTodo={handleDeleteTodo}/>
+      <PriorityBar user={user} priorities={priorities} priorityLevelNames={priorityLevelNames} addNewPriority={addNewPriority} handlePriorityDelete={handlePriorityDelete}/>
     </div>
   );
 }
