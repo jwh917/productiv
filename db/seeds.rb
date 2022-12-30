@@ -62,6 +62,4 @@ u1p2 = Priority.create(user_id: u1.id, priority_level_id: pl2.id, title: "Work",
 u2p1 = Priority.create(user_id: u2.id, priority_level_id: pl4.id, title: "School", comment: "Read")
 u2p2 = Priority.create(user_id: u2.id, priority_level_id: pl1.id, title: "Lacrosse", comment: "Work Out")
 
-
-
 puts "✅ Done seeding!"

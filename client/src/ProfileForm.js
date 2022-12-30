@@ -46,7 +46,6 @@ function ProfileForm({ user, setUser }) {
       setIsLoading(false);
       if (r.ok) {
         r.json().then((newProfile) => {
-          console.log(newProfile)
           setUser({...user, profile: newProfile})
         } );
       } else {

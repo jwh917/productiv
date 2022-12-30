@@ -33,8 +33,8 @@ function PriorityBar({user, priorities, priorityLevelNames, addNewPriority, hand
     );
 
     setPositions(existingDivPositions);
-    console.log(existingDivPositions);
-    console.log("has loaded");
+    // console.log(existingDivPositions);
+    // console.log("has loaded");
   }, []);
 
   function handleStop(e, data) {

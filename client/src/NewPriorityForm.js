@@ -15,11 +15,9 @@ function NewPriorityForm({user, priorityLevelNames, addNewPriority}) {
     })
 
     function handleSelectedLevel(event) {
-      console.log(event.target.value)
       setNewItemLevelId(priorityLevelNames.indexOf(event.target.value))
     }
-    console.log(priorityLevelNames)
-    console.log(newItemLevelId + 1)
+
 
 
 
@@ -27,7 +25,6 @@ function NewPriorityForm({user, priorityLevelNames, addNewPriority}) {
     function handleSubmit(event) {
         event.preventDefault()
         setErrors([]);
-        console.log(newItemLevelId)
 
         fetch("/priorities", {
             method: "POST",
@@ -50,7 +47,6 @@ function NewPriorityForm({user, priorityLevelNames, addNewPriority}) {
               });
             } else {
               r.json().then((err) => {
-                console.log(err)
                 setErrors(err.errors)});
             }
           })

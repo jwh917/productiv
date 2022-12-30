@@ -29,8 +29,6 @@ class PrioritiesController < ApplicationController
   end
 
 
-
-
   private
 
   def find_pty
@@ -44,5 +42,4 @@ class PrioritiesController < ApplicationController
   def render_not_found_response
     render json: { error: "Priority not found" }, status: :not_found
   end
-
 end

@@ -17,7 +17,6 @@ function HabitsForm({user}){
   function handleCheck(e){
     let newHabit = [...checked]
     if(e.target.checked){
-      console.log(e.target.value)
       newHabit = [...checked, e.target.value];
     }
     else {

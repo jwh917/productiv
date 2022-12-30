@@ -27,15 +27,9 @@ class UsersController < ApplicationController
     head :no_content
   end
 
-  def lookup
-    users = User.all
-    byebug
-  end
-
   private
 
   def user_params
     params.permit(:username, :password, :password_confirmation)
   end
-
 end

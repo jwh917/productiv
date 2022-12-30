@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import HabitsForm from "./HabitsForm";
 
 
-
 function About({user, setUser}) {
 
   const {username} = user
