@@ -59,6 +59,10 @@ function Todo({user}) {
     setTodos([...todos, newTodo])
   }
 
+  function addNewCategory(newCategory) {
+    setCategoryNames([...categoryNames, newCategory.name])
+  }
+
 
   return (
 
@@ -72,7 +76,7 @@ function Todo({user}) {
       </div>
 
       <div >
-        <TodoList user={user} selectedTodos={selectedTodos} categoryNames={categoryNames} handleCategorySelected={handleCategorySelected} addNewTodo={addNewTodo} handleDeleteTodo={handleDeleteTodo}/>
+        <TodoList user={user} selectedTodos={selectedTodos} categoryNames={categoryNames} handleCategorySelected={handleCategorySelected} addNewTodo={addNewTodo} handleDeleteTodo={handleDeleteTodo} addNewCategory={addNewCategory}/>
 
       </div>
 

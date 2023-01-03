@@ -61,7 +61,7 @@ function NewTodoForm({user, categoryNames, addNewTodo}) {
         <div>
         <form onSubmit={handleSubmit} className="new-todo-form">
             <label>
-                Title: <input type="text" onChange={(e) => setNewItemTitle(e.target.value)} value={newItemTitle}></input>
+                New Todo: <input type="text" onChange={(e) => setNewItemTitle(e.target.value)} value={newItemTitle}></input>
             </label>
             <br/>
                 <label> Category: <select onChange={handleSelectedCategory}>
