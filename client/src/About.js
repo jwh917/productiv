@@ -2,12 +2,9 @@ import React, { useState } from "react";
 import HabitsForm from "./HabitsForm";
 
 
-
 function About({user, setUser}) {
 
   const {username} = user
-
-  const x = 5
 
   const {id, user_id, name, email, age_group, start_day, end_day, bio} = user.profile
 

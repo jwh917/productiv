@@ -5,7 +5,7 @@ import React, {useState} from "react";
 function NewPriorityForm({user, priorityLevelNames, addNewPriority}) {
     const [newItemTitle, setNewItemTitle] = useState("")
     const [newItemComment, setNewItemComment] = useState("")
-    const [newItemLevelId, setNewItemLevelId] = useState("")
+    const [newItemLevelId, setNewItemLevelId] = useState(0)
     const [errors, setErrors] = useState([]);
    
     const options = priorityLevelNames.map((category) => {
@@ -20,18 +20,20 @@ function NewPriorityForm({user, priorityLevelNames, addNewPriority}) {
 
 
 
+
+
     function handleSubmit(event) {
         event.preventDefault()
         setErrors([]);
 
-        fetch("/priorties", {
+        fetch("/priorities", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
               user_id: user.id,              
-              priorty_level_id: newItemLevelId + 1,
+              priority_level_id: newItemLevelId + 1,
               title: newItemTitle,
               comment: newItemComment
             }),
@@ -44,7 +46,8 @@ function NewPriorityForm({user, priorityLevelNames, addNewPriority}) {
                 setNewItemComment("")
               });
             } else {
-              r.json().then((err) => setErrors(err.errors));
+              r.json().then((err) => {
+                setErrors(err.errors)});
             }
           })
 

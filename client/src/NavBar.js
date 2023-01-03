@@ -4,7 +4,6 @@ import LogoutButton from "./LogoutButton";
 import Clock from "./Clock";
 
 
-
 const linkStyles = {
   display: "inline-block",
   width: "80px",

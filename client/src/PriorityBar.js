@@ -33,8 +33,8 @@ function PriorityBar({user, priorities, priorityLevelNames, addNewPriority, hand
     );
 
     setPositions(existingDivPositions);
-    console.log(existingDivPositions);
-    console.log("has loaded");
+    // console.log(existingDivPositions);
+    // console.log("has loaded");
   }, []);
 
   function handleStop(e, data) {
@@ -56,7 +56,7 @@ function PriorityBar({user, priorities, priorityLevelNames, addNewPriority, hand
     const priorityLevelId = priority.priority_level_id - 1
     return (
         <PriorityItem
-            key={priority.title}
+            key={priority.id}
             priority={priority}
             priorityLevel={priorityLevelNames[priorityLevelId]}
             positions={positions}

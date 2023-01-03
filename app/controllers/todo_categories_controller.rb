@@ -16,6 +16,7 @@ class TodoCategoriesController < ApplicationController
     render json: todo_category, status: :created
   end
 
+
   private
 
   def tc_params

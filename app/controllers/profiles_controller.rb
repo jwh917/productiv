@@ -42,6 +42,4 @@ class ProfilesController < ApplicationController
   def render_not_found_response
     render json: { error: "Profile not found" }, status: :not_found
   end
-
 end
-

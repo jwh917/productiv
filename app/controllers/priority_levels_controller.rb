@@ -16,6 +16,7 @@ class PriorityLevelsController < ApplicationController
     render json: priority_level, status: :created
   end
 
+
   private
 
   def pl_params
@@ -29,5 +30,4 @@ class PriorityLevelsController < ApplicationController
   def render_not_found_response
     render json: { error: "Priority level not found" }, status: :not_found
   end
-
 end
