@@ -60,6 +60,8 @@ function Todo({user}) {
 
   function deleteCategory(category){
 
+    setTodos(todos.filter((todo) => (todo.todo_category.name !== category)))
+
     setTodoCategories(todoCategories.filter((todo) => (todo.name !== category)))
     
     setCategoryNames(categoryNames.filter((categoryName) => (categoryName !== category)))

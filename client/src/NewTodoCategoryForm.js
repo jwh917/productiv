@@ -33,13 +33,13 @@ function NewTodoCategoryForm({addNewCategory, setTodoCategories, todoCategories}
           event.target.reset()
     }
 
-    
+
     return (
       <div>
         <form onSubmit={handleSubmit} className="new-todo-form">
 
             <label>
-                New Category: <input type="text" onChange={(e) => setNewCategoryName(e.target.value)} value={newCategoryName}></input>
+                New Category Name: <input type="text" onChange={(e) => setNewCategoryName(e.target.value)} value={newCategoryName}></input>
             </label>
 
             {errors.map((err) => ( <h6 key={err}>{err}</h6>))}
