@@ -10,7 +10,7 @@
 # .reset_pk_sequence
 
 
-puts "🌱 Seeding ..."
+puts "🌱 Seeding ...."
 
 
 User.destroy_all
