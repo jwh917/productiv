@@ -6,14 +6,15 @@ class TodoCategoriesController < ApplicationController
     render json: todo_categories
   end
 
-  def show
-    todo_category = find_tc
-    render json: todo_category
-  end
-
   def create
     todo_category = TodoCategory.create!(tc_params)
     render json: todo_category, status: :created
+  end
+
+  def destroy
+    todo_category = find_tc
+    todo_category.destroy
+    head :no_content
   end
 
 

@@ -5,15 +5,15 @@ import NewTodoForm from "./NewTodoForm";
 import NewTodoCategoryForm from "./NewTodoCategoryForm";
 
 
-function TodoList ({user, selectedTodos, categoryNames, handleCategorySelected, addNewTodo, handleDeleteTodo, addNewCategory}) {
+function TodoList ({user, selectedTodos, categoryNames, handleCategorySelected, addNewTodo, handleDeleteTodo, addNewCategory, setTodoCategories, todoCategories, deleteCategory}) {
 
     const todosShown = selectedTodos.map((todo) => {
-        const categoryId = todo.todo_category.id
+
         return (
             <TodoItem
                 key={todo.title}
                 title={todo.title}
-                category={categoryNames[categoryId]}
+                category={todo.todo_category.name}
                 todoId={todo.id}
                 completed={todo.completed}
                 handleDeleteTodo={handleDeleteTodo}
@@ -26,17 +26,17 @@ function TodoList ({user, selectedTodos, categoryNames, handleCategorySelected, 
 
         <div>
           <div>
-            <NewTodoForm user={user} categoryNames={categoryNames} addNewTodo={addNewTodo} />
+            <NewTodoForm user={user} categoryNames={categoryNames} addNewTodo={addNewTodo} todoCategories={todoCategories}/>
           </div>
 
           <div>
-            <NewTodoCategoryForm addNewCategory={addNewCategory}/>
+            <NewTodoCategoryForm addNewCategory={addNewCategory} setTodoCategories={setTodoCategories} todoCategories={todoCategories} deleteCategory={deleteCategory}/>
           </div>
 
           <br/>
 
           <div className="todoCategoryButtons">
-            <TodoCategoryFilter categoryNames={categoryNames} handleCategorySelected={handleCategorySelected} />
+            <TodoCategoryFilter categoryNames={categoryNames} handleCategorySelected={handleCategorySelected} todoCategories={todoCategories} deleteCategory={deleteCategory}/>
           </div>
 
           <br/>

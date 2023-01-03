@@ -1,12 +1,11 @@
 import React, {useState} from "react";
 
 
-function NewTodoCategoryForm({addNewCategory}) {
+function NewTodoCategoryForm({addNewCategory, setTodoCategories, todoCategories}) {
     const [newCategoryName, setNewCategoryName] = useState("")
     const [errors, setErrors] = useState([]);
-   
 
-
+    
     function handleSubmit(event) {
         event.preventDefault()
         setErrors([]);
@@ -23,6 +22,7 @@ function NewTodoCategoryForm({addNewCategory}) {
           .then((r) => {
             if (r.ok) {
               r.json().then((newCategory) => {
+                setTodoCategories([...todoCategories, newCategory])
                 addNewCategory(newCategory)
                 setNewCategoryName("")
               });
@@ -30,12 +30,10 @@ function NewTodoCategoryForm({addNewCategory}) {
               r.json().then((err) => setErrors(err.errors));
             }
           })
-
           event.target.reset()
-           
     }
 
-
+    
     return (
       <div>
         <form onSubmit={handleSubmit} className="new-todo-form">

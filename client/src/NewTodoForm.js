@@ -1,13 +1,14 @@
 import React, {useState} from "react";
 
 
-
-function NewTodoForm({user, categoryNames, addNewTodo}) {
+function NewTodoForm({user, categoryNames, addNewTodo, todoCategories}) {
     const [newItemTitle, setNewItemTitle] = useState("")
     const [newItemCategoryId, setNewItemCategoryId] = useState("")
     const [errors, setErrors] = useState([]);
+
    
     const categoriesWithoutAll = categoryNames.filter((category) => (category !== "All"))
+
     const options = categoriesWithoutAll.map((category) => {
         return (
             <option key={category} value={category}>{category}</option>
@@ -15,7 +16,10 @@ function NewTodoForm({user, categoryNames, addNewTodo}) {
     })
 
     function handleSelectedCategory(event) {
-      setNewItemCategoryId(categoryNames.indexOf(event.target.value))
+
+      const selectedCategory = todoCategories.find((todo) => (todo.name === event.target.value))
+
+      setNewItemCategoryId(selectedCategory.id)
     }
 
 
@@ -30,7 +34,6 @@ function NewTodoForm({user, categoryNames, addNewTodo}) {
           title: newItemTitle,
           completed: false
         }
-
 
 
         fetch("/todos", {
@@ -54,7 +57,6 @@ function NewTodoForm({user, categoryNames, addNewTodo}) {
           event.target.reset()
            
     }
-
 
    
     return (

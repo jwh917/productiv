@@ -9,15 +9,10 @@ function Todo({user}) {
   const [todoCategories, setTodoCategories] = useState([]);
   const [categoryNames, setCategoryNames] = useState([]);
 
-
-
   useEffect(() => {
     fetch("/todos")
-      .then((res) => {
-      if (res.ok) {
-        res.json().then((todos) => setTodos(todos));
-      }
-    });
+      .then((r) => r.json())
+      .then((todos) => setTodos(todos))
   }, [selectedCategory]);
 
 
@@ -63,6 +58,14 @@ function Todo({user}) {
     setCategoryNames([...categoryNames, newCategory.name])
   }
 
+  function deleteCategory(category){
+
+    setTodoCategories(todoCategories.filter((todo) => (todo.name !== category)))
+    
+    setCategoryNames(categoryNames.filter((categoryName) => (categoryName !== category)))
+
+  }
+
 
   return (
 
@@ -76,7 +79,7 @@ function Todo({user}) {
       </div>
 
       <div >
-        <TodoList user={user} selectedTodos={selectedTodos} categoryNames={categoryNames} handleCategorySelected={handleCategorySelected} addNewTodo={addNewTodo} handleDeleteTodo={handleDeleteTodo} addNewCategory={addNewCategory}/>
+        <TodoList user={user} selectedTodos={selectedTodos} categoryNames={categoryNames} handleCategorySelected={handleCategorySelected} addNewTodo={addNewTodo} handleDeleteTodo={handleDeleteTodo} addNewCategory={addNewCategory} setTodoCategories={setTodoCategories} todoCategories={todoCategories} deleteCategory={deleteCategory}/>
 
       </div>
 

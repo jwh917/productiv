@@ -352,12 +352,21 @@
 
 .todoCategoryButtons{
   position: relative;
+  display: inline-flex;
+  
+  
   right: 165px;
 }
 
 .todosListShown{
   position: relative;
   right: 200px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
 }
 
 

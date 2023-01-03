@@ -10,22 +10,48 @@ const buttonStyles = {
   background: "lightgreen",
   borderRadius: "10px",
   textDecoration: "none",
-  color: "white",
+  color: "black",
+};
+
+const xStyles = {
+  color: "red",
+  border: "1px solid red",
+  cursor: "pointer"
 };
 
 
-function TodoCategoryFilter({ categoryNames, handleCategorySelected }) {
-   
+function TodoCategoryFilter({ categoryNames, handleCategorySelected, todoCategories, deleteCategory}) {
+
+  function handleDeleteCategory(category){
+    const deletedCategory = todoCategories.find((todo) => (todo.name === category))
+
+    deleteCategory(category)
+
+    fetch(`todo_categories/${deletedCategory.id}`, {
+      method: "DELETE"
+    });
+
+  }
+
+
     const categoryButtons = categoryNames.map((category) => {
-        return (<button
+        return ( <div key={category}>  
+            <button
             key={category}
             style={buttonStyles}
             onClick={() => (handleCategorySelected(category))}
             >
           {category}
-          </button>)
+          <br/>
+          <br/>
+          
+          </button>
+          {category === "All" ? "" : <span style={xStyles} onClick={() => (handleDeleteCategory(category))}>X</span> }
+
+          </div>)
     })
-    return <div> {categoryButtons} </div>   
+
+    return <div className="grid-container"> {categoryButtons} </div>   
 }
 
 export default TodoCategoryFilter;
