@@ -20,7 +20,8 @@ class PriorityLevelsController < ApplicationController
   private
 
   def pl_params
-    params.permit(:name)
+    # params.permit(:name)
+    params.permit(:name, :color)
   end
 
   def find_pl

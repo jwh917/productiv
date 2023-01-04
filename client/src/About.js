@@ -94,9 +94,9 @@ function About({user, setUser}) {
     <div className="aboutPage">
 
       <div>
-      <h1><u>About User</u></h1>
+      <h1 style={{position: "relative", left: "-100px"}}><u>About User</u></h1>
       <span>
-        <button className="deleteAccountButton" onClick={handleDeleteUser}> DELETE ACCOUNT</button>
+        <button className="deleteAccountButton" onClick={handleDeleteUser} style={{position: "relative", left: "-100px"}}> DELETE ACCOUNT</button>
       </span> 
     
       <br/>
@@ -104,7 +104,7 @@ function About({user, setUser}) {
       <br/>
       <br/>
 
-      <form onSubmit={handleUpdateUser} >
+      <form onSubmit={handleUpdateUser} style={{position: "relative", left: "-100px"}}>
         <h4><u>Edit User Info Here-</u></h4>
 
         <label htmlFor="name">User Name:</label>
@@ -131,7 +131,7 @@ function About({user, setUser}) {
       <br/>
       <br/>
 
-      <form onSubmit={handleUpdateProfile}>
+      <form onSubmit={handleUpdateProfile} style={{position: "relative", left: "-80px"}}>
         <h4><u>Edit Profile Info Here-</u></h4>
 
         <label htmlFor="name">Name:</label>

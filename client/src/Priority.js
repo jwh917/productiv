@@ -22,10 +22,10 @@ function Priority({user}){
   useEffect(() => {
     fetch("/priority_levels")
       .then((r) => r.json())
-      .then((priorityLevels) => {
-        // const priorityLevelsNames = priorityLevels.map(priorityLevel => priorityLevel.name)
-        setPriorityLevelNames(priorityLevels)})
+      .then((priorityLevels) => 
+        setPriorityLevelNames(priorityLevels))
   }, []);
+
 
 
 
@@ -78,7 +78,7 @@ function PriorityLevelForm() {
 
       {/* Color picker for selecting priority level color */}
       <label htmlFor="levelColor">Color:</label>
-      <input type="color" id="levelColor" />
+      <input type="color" id="levelColor" onChange={(e) => console.log(e.target.value)}/>
 
       {/* Submit button */}
       <br/>

@@ -61,10 +61,11 @@ function HabitsForm({user}){
   
   
   return (
-  <div>
+  <div style={{position: "absolute", left: "600px", marginTop: "-60px"}}>
     <h4><u>Add Habits Here-</u></h4>
 
     <form onSubmit={handleSubmit}>
+      <label htmlFor="Shower">Shower 🚿 | 🛀🏾 </label>
       <input
           type="checkbox"
           id="Shower"
@@ -72,8 +73,8 @@ function HabitsForm({user}){
           value="Shower"
           onChange={handleCheck}
         />
-        <label htmlFor="Shower">Shower 🚿 | 🛀🏾 </label>
 
+        <label htmlFor="Brush Teeth">Brush teeth 🦷 | 🪥 </label>
         <input
           type="checkbox"
           id="Brush Teeth"
@@ -81,8 +82,8 @@ function HabitsForm({user}){
           value="Brush Teeth"
           onChange={handleCheck}
         />
-        <label htmlFor="Brush Teeth">Brush teeth 🦷 | 🪥 </label>
 
+        <label htmlFor="Meds">Meds 💉 | 💊 </label>
         <input
           type="checkbox"
           id="Meds"
@@ -90,8 +91,8 @@ function HabitsForm({user}){
           value="Meds"
           onChange={handleCheck}
         />
-        <label htmlFor="Meds">Meds 💉 | 💊 </label>
 
+        <label htmlFor="Drink Water">Drink water 💦 | 🚰 </label>
         <input
           type="checkbox"
           id="Drink Water"
@@ -99,8 +100,8 @@ function HabitsForm({user}){
           value="Water"
           onChange={handleCheck}
         />
-        <label htmlFor="Drink Water">Drink water 💦 | 🚰 </label>
 
+        <label htmlFor="Mediation">Mediation 🧘🏻‍♀️ | 🧘🏾‍♂️ </label>
         <input
           type="checkbox"
           id="Mediation"
@@ -108,8 +109,8 @@ function HabitsForm({user}){
           value="Mediation"
           onChange={handleCheck}
         />
-        <label htmlFor="Mediation">Mediation 🧘🏻‍♀️ | 🧘🏾‍♂️ </label>
 
+        <label htmlFor="Walk">Walk 🚶🏽‍♂️ | 🚶🏼‍♀️ </label>
         <input
           type="checkbox"
           id="Walk"
@@ -117,8 +118,8 @@ function HabitsForm({user}){
           value="Walk"
           onChange={handleCheck}
         />
-        <label htmlFor="Walk">Walk 🚶🏽‍♂️ | 🚶🏼‍♀️ </label>
 
+        <label htmlFor="Eat Veggies">Eat Veggies 🥦 | 🥕</label>
         <input
           type="checkbox"
           id="Eat Veggies"
@@ -126,8 +127,8 @@ function HabitsForm({user}){
           value="Eat Veggies"
           onChange={handleCheck}
         />
-        <label htmlFor="Eat Veggies">Eat Veggies 🥦 | 🥕</label>
 
+        <label htmlFor="Enough Sleep">Enough Sleep 🛌 | 🛏 </label>
         <input
           type="checkbox"
           id="Enough Sleep"
@@ -135,12 +136,15 @@ function HabitsForm({user}){
           value="Enough Sleep"
           onChange={handleCheck}
         />
-        <label htmlFor="Enough Sleep">Enough Sleep 🛌 | 🛏 </label>
 
         {errors.map((err) => ( <h6 key={err}>{err}</h6>))}
 
+        <div style={{position: "absolute", marginTop: "-10px"}}>
+          <h4><u>Habits:</u></h4>
+          <p style={{marginTop: "-15px"}}>{checkedItems}</p>
+        </div>
 
-        <button className="aboutPageButton" type="submit"> {isLoading ? "Loading..." : "Submit Habits"} </button>
+        <button className="aboutPageButton" type="submit" style={{position: "absolute", marginTop: "140px"}}> {isLoading ? "Loading..." : "Submit Habits"} </button>
 
     </form>
         

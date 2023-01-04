@@ -24,7 +24,7 @@ import React from "react";
 function PriorityBar({ priorities, priorityLevelNames, addNewPriority, handlePriorityDelete}){
 
 
-
+console.log(priorities)
 
 // Table component for displaying priorities
 // Fix css on this
@@ -52,7 +52,8 @@ function PriorityTable({priorities, priorityLevelNames}) {
             {/* style={{ backgroundColor: level.color }} */}
             <td>
               <h3>
-                <hr style={{borderTop:" 4px solid red"}}/>
+                {/* color from priority level */}
+                <hr style={{borderTop: `4px solid ${level.color}`}}/>
                 {level.name}
               </h3>
             </td>
@@ -65,7 +66,8 @@ function PriorityTable({priorities, priorityLevelNames}) {
                   <div key={priority.id} style={{background: "white", border: "2px black solid", borderRadius: "5px"}}>
                     {/* Priority title and comment */}
                     <p><u>{priority.title}</u></p>
-                    <p style={{"background": "red"}}>{priority.priority_level.name}</p>
+                    {/* color from priority level */}
+                    <p style={{background: `${priority.priority_level.color}`}}>{priority.priority_level.name}</p>
                     <p>-{priority.comment}</p>
                     {/* Delete button */}
                     <button type="button">🗑</button>

@@ -49,10 +49,10 @@ u2td3 = Todo.create(user_id: u2.id, todo_category_id: money.id, title: "Spend", 
 
 
 PriorityLevel.destroy_all
-pl1 = PriorityLevel.create(name: "Critical")
-pl2 = PriorityLevel.create(name: "Major")
-pl3 = PriorityLevel.create(name: "Medium")
-pl4 = PriorityLevel.create(name: "Minor")
+pl1 = PriorityLevel.create(name: "Critical", color: "#FF0000")
+pl2 = PriorityLevel.create(name: "Major", color: "#FFA500")
+pl3 = PriorityLevel.create(name: "Medium", color: "#FFFF00")
+pl4 = PriorityLevel.create(name: "Minor", color: "#008000")
 
 
 Priority.destroy_all
