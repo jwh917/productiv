@@ -370,6 +370,8 @@
 }
 
 
+
+
 /* priorityPage */
 
 .priorityPage{
@@ -431,6 +433,11 @@
   color: #e5e5e5;
 }
 
+.priorityTitle{
+  position: relative;
+  margin-left: 90px;
+ }
+
 
  .priorityHeader{
   position: relative;
@@ -449,5 +456,21 @@
   border-left: 6px solid green;
   height: 310px;
   padding: 34px;
+}
+
+
+.priorityName-container {
+  margin-top: -65px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.priorityForm-container {
+  position: absolute;
+  left: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 5px;
 }
 
