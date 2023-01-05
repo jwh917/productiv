@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   resources :priorities
 
-  resources :priority_levels, only: [:index, :show, :create] 
+  resources :priority_levels, only: [:index, :create, :destroy] 
 
   resources :todos
 

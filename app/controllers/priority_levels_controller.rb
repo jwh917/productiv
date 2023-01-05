@@ -6,21 +6,21 @@ class PriorityLevelsController < ApplicationController
     render json: priority_levels
   end
 
-  def show
-    priority_level = find_pl
-    render json: priority_level
-  end
-
   def create
     priority_level = PriorityLevel.create!(pl_params)
     render json: priority_level, status: :created
+  end
+
+  def destroy
+    priority_level = find_pl
+    priority_level.destroy
+    head :no_content
   end
 
 
   private
 
   def pl_params
-    # params.permit(:name)
     params.permit(:name, :color)
   end
 

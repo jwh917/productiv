@@ -4,6 +4,7 @@ import React, {useState} from "react";
 function NewTodoForm({user, categoryNames, addNewTodo, todoCategories}) {
     const [newItemTitle, setNewItemTitle] = useState("")
     const [newItemCategoryId, setNewItemCategoryId] = useState("")
+    // 0
     const [errors, setErrors] = useState([]);
 
    
@@ -61,7 +62,7 @@ function NewTodoForm({user, categoryNames, addNewTodo, todoCategories}) {
    
     return (
         <div>
-        <form onSubmit={handleSubmit} className="new-todo-form">
+        <form onSubmit={handleSubmit}>
             <label>
                 New Todo Title: <input type="text" onChange={(e) => setNewItemTitle(e.target.value)} value={newItemTitle}></input>
             </label>

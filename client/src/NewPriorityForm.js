@@ -1,7 +1,5 @@
 import React, {useState} from "react";
 
-
-  
 function NewPriorityForm({user, priorityLevelNames, addNewPriority}) {
     const [newItemTitle, setNewItemTitle] = useState("")
     const [newItemComment, setNewItemComment] = useState("")
@@ -17,10 +15,6 @@ function NewPriorityForm({user, priorityLevelNames, addNewPriority}) {
     function handleSelectedLevel(event) {
       setNewItemLevelId(priorityLevelNames.indexOf(event.target.value))
     }
-
-
-
-
 
     function handleSubmit(event) {
         event.preventDefault()
@@ -59,7 +53,7 @@ function NewPriorityForm({user, priorityLevelNames, addNewPriority}) {
    
     return (
         <div>
-        <form onSubmit={handleSubmit} className="new-priority-form">
+        <form onSubmit={handleSubmit}>
             <label>
                 Title: <input type="text" onChange={(e) => setNewItemTitle(e.target.value)} value={newItemTitle}></input>
             </label>

@@ -191,7 +191,6 @@
   font-weight: 500;
   line-height: 42px;
   text-align: center;
-  margin-left: -80px;
 }
 
 .aboutPage label{
@@ -469,7 +468,7 @@
 
 .priorityForm-container {
   position: absolute;
-  left: 50px;
+  left: 100px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 5px;
