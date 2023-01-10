@@ -1,16 +1,6 @@
 class ProfilesController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 
-  def index
-    profile = @current_user.profile
-    render json: profile
-  end
-
-  def show
-    profile = find_pro
-    render json: profile
-  end
-
   def create
     profile = Profile.create!(pro_params)
     render json: profile, status: :created

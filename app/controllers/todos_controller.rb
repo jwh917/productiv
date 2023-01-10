@@ -6,11 +6,6 @@ class TodosController < ApplicationController
     render json: todos
   end
 
-  def show
-    todo = find_td
-    render json: todo
-  end
-
   def create
     todo = @current_user.todos.create!(td_params)
     render json: todo, status: :created

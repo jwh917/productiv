@@ -6,11 +6,6 @@ class PrioritiesController < ApplicationController
     render json: priorities
   end
 
-  def show
-    priority = find_pty
-    render json: priority
-  end
-
   def create
     priority = @current_user.priorities.create!(pty_params)
     render json: priority, status: :created

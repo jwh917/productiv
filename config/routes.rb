@@ -1,19 +1,17 @@
 Rails.application.routes.draw do
 
-  resources :priorities
+  resources :priorities, only: [:index, :create, :destroy]
 
   resources :priority_levels, only: [:index, :create, :destroy] 
 
-  resources :todos
+  resources :todos, only: [:index, :create, :update, :destroy]
 
   resources :todo_categories, only: [:index, :create, :destroy] 
 
-  resources :habits
+  resources :habits, only: [:index, :create, :destroy]
 
-  resources :profiles, only: [:index, :show, :create, :update, :destroy]
+  resources :profiles, only: [:create, :update, :destroy]
   
-  resources :users, only: [:index, :destroy]
-
   post "/signup", to: "users#create"
 
   get "/me", to: "users#show"

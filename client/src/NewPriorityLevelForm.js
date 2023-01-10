@@ -18,7 +18,7 @@ function NewPriorityLevelForm({priorityLevelNames, setPriorityLevelNames}) {
         },
         body: JSON.stringify({
           name: priorityLevelName,
-          color: priorityLevelColor
+          color: priorityLevelColor.toUpperCase()
         }),
       })
       .then((r) => {
