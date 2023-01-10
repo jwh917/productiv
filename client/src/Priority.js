@@ -37,6 +37,10 @@ function Priority({user}){
   }
 
 
+  function priorityLevelDelete(deletedPriorityLevelId) {
+    setPriorityLevelNames(priorityLevelNames.filter((priorityLevel) => (priorityLevel.id !== deletedPriorityLevelId)))
+  }
+
   return (
     <div className="priorityPage">
       <h1 className="priorityTitle"><u>PriorityBar</u></h1>
@@ -62,7 +66,7 @@ function Priority({user}){
 
       <br/>
 
-      <PriorityBar user={user} priorities={priorities} priorityLevelNames={priorityLevelNames} addNewPriority={addNewPriority} handlePriorityDelete={handlePriorityDelete}/>
+      <PriorityBar user={user} priorities={priorities} priorityLevelNames={priorityLevelNames} addNewPriority={addNewPriority} handlePriorityDelete={handlePriorityDelete} priorityLevelDelete={priorityLevelDelete}/>
     </div>
   );
 }

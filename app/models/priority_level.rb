@@ -1,5 +1,5 @@
 class PriorityLevel < ApplicationRecord
-  has_many :priorities
+  has_many :priorities, dependent: :destroy
   has_many :user, through: :priorities
 
   validates :name, presence: true, uniqueness: true

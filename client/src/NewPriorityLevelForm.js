@@ -42,10 +42,13 @@ function NewPriorityLevelForm({priorityLevelNames, setPriorityLevelNames}) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label >Title:</label>
+      <br/>
+      <br/>
+
+      <label>Priority Level Name:</label>
       <input type="text" onChange={(e) => setPriorityLevelName(e.target.value)} value={priorityLevelName}/>
 
-      <label htmlFor="levelColor">Color:</label>
+      <label htmlFor="levelColor">Priority Level Color:</label>
       <input type="color" onChange={(e) => setPriorityLevelColor(e.target.value)}></input>
 
       <br/>
