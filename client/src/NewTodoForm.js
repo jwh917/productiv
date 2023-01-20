@@ -1,10 +1,9 @@
 import React, {useState} from "react";
 
 
-function NewTodoForm({user, categoryNames, addNewTodo, todoCategories}) {
+function NewTodoForm({user, setUser, categoryNames, addNewTodo, todoCategories}) {
     const [newItemTitle, setNewItemTitle] = useState("")
-    const [newItemCategoryId, setNewItemCategoryId] = useState("")
-    // 0
+    const [newItemCategoryId, setNewItemCategoryId] = useState(0)
     const [errors, setErrors] = useState([]);
 
    
@@ -17,8 +16,7 @@ function NewTodoForm({user, categoryNames, addNewTodo, todoCategories}) {
     })
 
     function handleSelectedCategory(event) {
-
-      const selectedCategory = todoCategories.find((todo) => (todo.name === event.target.value))
+      const selectedCategory = todoCategories.find((category) => (category.name === event.target.value))
 
       setNewItemCategoryId(selectedCategory.id)
     }
@@ -49,14 +47,14 @@ function NewTodoForm({user, categoryNames, addNewTodo, todoCategories}) {
               r.json().then((newTodo) => {
                 addNewTodo(newTodo)
                 setNewItemTitle("")
+                // setUser({...user, todos: newTodo})
+
               });
             } else {
               r.json().then((err) => setErrors(err.errors));
             }
           })
-
-          event.target.reset()
-           
+          event.target.reset()           
     }
 
    
@@ -67,10 +65,11 @@ function NewTodoForm({user, categoryNames, addNewTodo, todoCategories}) {
                 New Todo Title: <input type="text" onChange={(e) => setNewItemTitle(e.target.value)} value={newItemTitle}></input>
             </label>
             <br/>
-                <label> Category: <select onChange={handleSelectedCategory}>
-                <option>Choose a Category</option>
-                        {options}
-                    </select>
+                <label> Category: 
+                  <select onChange={handleSelectedCategory}>
+                    <option>Choose a Category</option>
+                    {options}
+                  </select>
                 </label>
                 <br/>
             <input type="submit" value="Add Todo"></input>

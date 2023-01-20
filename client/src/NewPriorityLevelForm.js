@@ -36,13 +36,11 @@ function NewPriorityLevelForm({priorityLevelNames, setPriorityLevelNames}) {
       })
 
       event.target.reset()
-       
 }
 
 
   return (
     <form onSubmit={handleSubmit}>
-      <br/>
       <br/>
 
       <label>Priority Level Name:</label>

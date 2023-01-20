@@ -38,13 +38,10 @@ function NewPriorityForm({user, priorityLevelNames, addNewPriority}) {
                 setErrors(err.errors)});
             }
           })
-
           event.target.reset()
-           
     }
 
-
-   
+    
     return (
         <div>
 
@@ -58,6 +55,7 @@ function NewPriorityForm({user, priorityLevelNames, addNewPriority}) {
 
             <label htmlFor="priorityLevel">Priority Level:</label>
             <select onChange={handleSelectedLevel}>
+              <option>Choose a Priority Level</option>
 
               {priorityLevelNames.map(level => (
                 <option key={level.id} value={level.id}>{level.name}</option>

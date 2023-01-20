@@ -2,18 +2,11 @@ import React, { useEffect, useState } from "react";
 import TodoList from "./TodoList"
 
 
-function Todo({user}) {
 
-  const [todos, setTodos] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState("All");
+function Todo({user, setUser, todos, setTodos, selectedCategory, setSelectedCategory}) {
+
   const [todoCategories, setTodoCategories] = useState([]);
   const [categoryNames, setCategoryNames] = useState([]);
-
-  useEffect(() => {
-    fetch("/todos")
-      .then((r) => r.json())
-      .then((todos) => setTodos(todos))
-  }, [selectedCategory]);
 
 
   useEffect(() => {
@@ -32,9 +25,11 @@ function Todo({user}) {
     setSelectedCategory(category)
   }
 
+
   const selectedTodoCategory = todoCategories.find(todoCat => {
     return todoCat.name === selectedCategory
   })
+
 
   let selectedTodos = []
 
@@ -42,7 +37,8 @@ function Todo({user}) {
     selectedTodos = todos
   } else {
     selectedTodos = todos.filter((todo) => 
-    (todo.todo_category.id === selectedTodoCategory.id))
+    (todo.category === selectedTodoCategory.name)
+    )
   }
 
 
@@ -60,7 +56,7 @@ function Todo({user}) {
 
   function deleteCategory(category){
 
-    setTodos(todos.filter((todo) => (todo.todo_category.name !== category)))
+    setTodos(todos.filter((todo) => (todo.category || todo.todo_category.name !== category)))
 
     setTodoCategories(todoCategories.filter((todo) => (todo.name !== category)))
     
@@ -76,15 +72,11 @@ function Todo({user}) {
       <div className="todoList">
         <h1><u>Todo List</u></h1>
         <h2><u>Todo Count</u>: {todos.length}</h2>
-
-
       </div>
 
       <div >
-        <TodoList user={user} selectedTodos={selectedTodos} categoryNames={categoryNames} handleCategorySelected={handleCategorySelected} addNewTodo={addNewTodo} handleDeleteTodo={handleDeleteTodo} addNewCategory={addNewCategory} setTodoCategories={setTodoCategories} todoCategories={todoCategories} deleteCategory={deleteCategory}/>
-
+        <TodoList user={user} setUser={setUser} selectedTodos={selectedTodos} categoryNames={categoryNames} handleCategorySelected={handleCategorySelected} addNewTodo={addNewTodo} handleDeleteTodo={handleDeleteTodo} addNewCategory={addNewCategory} setTodoCategories={setTodoCategories} todoCategories={todoCategories} deleteCategory={deleteCategory} setSelectedCategory={setSelectedCategory}/>
       </div>
-
 
     </div>
   ); 

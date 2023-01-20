@@ -20,9 +20,11 @@ const xStyles = {
 };
 
 
-function TodoCategoryFilter({ categoryNames, handleCategorySelected, todoCategories, deleteCategory}) {
+function TodoCategoryFilter({ categoryNames, handleCategorySelected, todoCategories, deleteCategory, setSelectedCategory}) {
 
   function handleDeleteCategory(category){
+    setSelectedCategory("All")
+
     const deletedCategory = todoCategories.find((todo) => (todo.name === category))
 
     deleteCategory(category)

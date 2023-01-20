@@ -14,18 +14,24 @@ import Priority from "./Priority";
 function App() {
 
   const [user, setUser] = useState(null);
-  
+
+  const [todos, setTodos] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("All");
+
 
   useEffect(() => {
 
     fetch("/me").then((res) => {
       if (res.ok) {
-        res.json().then((user) => setUser(user));
+        res.json().then((user) => {
+          setUser(user)
+          setTodos(user.custom_todos)
+        });
       }
     });
 
     
-  }, []);
+  }, [selectedCategory]);
 
 
   if (!user) return <Login setUser={setUser} />;
@@ -45,7 +51,7 @@ function App() {
             <About user={user} setUser={setUser}/>
           </Route>
           <Route exact path="/todo">
-            <Todo user={user}/>
+            <Todo user={user} setUser={setUser} todos={todos} setTodos={setTodos} selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory}/>
           </Route>
           <Route exact path="/prioritybar">
             <Priority user={user}/>

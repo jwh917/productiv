@@ -5,15 +5,16 @@ import NewTodoForm from "./NewTodoForm";
 import NewTodoCategoryForm from "./NewTodoCategoryForm";
 
 
-function TodoList ({user, selectedTodos, categoryNames, handleCategorySelected, addNewTodo, handleDeleteTodo, addNewCategory, setTodoCategories, todoCategories, deleteCategory}) {
+function TodoList ({user, setUser, selectedTodos, categoryNames, handleCategorySelected, addNewTodo, handleDeleteTodo, addNewCategory, setTodoCategories, todoCategories, deleteCategory, setSelectedCategory}) {
+
 
     const todosShown = selectedTodos.map((todo) => {
 
         return (
             <TodoItem
-                key={todo.title}
+                key={todo.id}
                 title={todo.title}
-                category={todo.todo_category.name}
+                category={todo.category || todo.todo_category.name}
                 todoId={todo.id}
                 completed={todo.completed}
                 handleDeleteTodo={handleDeleteTodo}
@@ -26,17 +27,17 @@ function TodoList ({user, selectedTodos, categoryNames, handleCategorySelected, 
 
         <div>
           <div>
-            <NewTodoForm user={user} categoryNames={categoryNames} addNewTodo={addNewTodo} todoCategories={todoCategories}/>
+            <NewTodoForm user={user} setUser={setUser} categoryNames={categoryNames} addNewTodo={addNewTodo} todoCategories={todoCategories}/>
           </div>
 
           <div>
-            <NewTodoCategoryForm addNewCategory={addNewCategory} setTodoCategories={setTodoCategories} todoCategories={todoCategories} deleteCategory={deleteCategory}/>
+            <NewTodoCategoryForm addNewCategory={addNewCategory} setTodoCategories={setTodoCategories} todoCategories={todoCategories} deleteCategory={deleteCategory} />
           </div>
 
           <br/>
 
           <div className="todoCategoryButtons">
-            <TodoCategoryFilter categoryNames={categoryNames} handleCategorySelected={handleCategorySelected} todoCategories={todoCategories} deleteCategory={deleteCategory}/>
+            <TodoCategoryFilter categoryNames={categoryNames} handleCategorySelected={handleCategorySelected} todoCategories={todoCategories} deleteCategory={deleteCategory} setSelectedCategory={setSelectedCategory}/>
           </div>
 
           <br/>

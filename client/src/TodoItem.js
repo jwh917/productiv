@@ -1,8 +1,8 @@
 import React, { useState }  from "react";
 
 
-
 function TodoItem({ title, category, todoId, completed, handleDeleteTodo }) {
+
 
   const [isCompleted, setIsCompleted] = useState(completed);
 
