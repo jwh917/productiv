@@ -14,9 +14,9 @@ import Priority from "./Priority";
 function App() {
 
   const [user, setUser] = useState(null);
-
   const [todos, setTodos] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [priorities, setPriorities] = useState([]);
 
 
   useEffect(() => {
@@ -26,6 +26,7 @@ function App() {
         res.json().then((user) => {
           setUser(user)
           setTodos(user.custom_todos)
+          setPriorities(user.custom_priorities)
         });
       }
     });
@@ -35,7 +36,6 @@ function App() {
 
 
   if (!user) return <Login setUser={setUser} />;
-
 
   if (user.profile === null) return <ProfileForm user={user} setUser={setUser} />
 
@@ -54,7 +54,7 @@ function App() {
             <Todo user={user} setUser={setUser} todos={todos} setTodos={setTodos} selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory}/>
           </Route>
           <Route exact path="/prioritybar">
-            <Priority user={user}/>
+            <Priority user={user} priorities={priorities} setPriorities={setPriorities}/>
           </Route>
           <Route exact path="/">
             <Home user={user}/>

@@ -3,7 +3,7 @@ import PriorityItem from "./PriorityItem";
 import PriorityLevelHeader from "./PriorityLevelHeader";
 
 function PriorityTable({priorities, priorityLevelNames, handlePriorityDelete, priorityLevelDelete}){
-  
+
 
   return (
     <table>
@@ -31,11 +31,13 @@ function PriorityTable({priorities, priorityLevelNames, handlePriorityDelete, pr
 
             <td className="grid-container">
               {priorities
-                .filter(priority => priority.priority_level.id === level.id)
+                .filter(priority => priority.level_id === level.id)
                 .map(priority => (
                 <PriorityItem
                 key={priority.id}
                 priority={priority}
+                level_name={priority.level_name}
+                level_color={priority.level_color}
                 handlePriorityDelete={handlePriorityDelete}
                 />
                 ))}

@@ -3,8 +3,7 @@ import React from "react";
 
 function PriorityItem({priority, handlePriorityDelete}){
   
-  const {id, priority_level, title, comment} = priority
-
+  const {id, title, comment, level_name, level_color} = priority
 
   function handleDelete() {
     fetch(`priorities/${id}`, {
@@ -14,13 +13,14 @@ function PriorityItem({priority, handlePriorityDelete}){
   }
 
   return (
-    // reformat css 
+
     <div key={id} style={{background: "white", border: "2px black solid", borderRadius: "5px"}}>
       <p><u>{title}</u></p>
-      <p style={{background: `${priority_level.color}`}}>{priority_level.name}</p>
+      <p style={{background: `${ level_color }`}}>{ level_name }</p>
       <p><u>{comment}</u></p>
       <button type="button" onClick={handleDelete}>🗑</button>
     </div>
+
   );
 }
 export default PriorityItem;

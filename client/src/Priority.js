@@ -5,20 +5,9 @@ import NewPriorityLevelForm from "./NewPriorityLevelForm";
 
 
 
-function Priority({user}){
+function Priority({user, priorities, setPriorities}){
 
-  const [priorities, setPriorities] = useState([]);
   const [priorityLevelNames, setPriorityLevelNames] = useState([]);
-
-  useEffect(() => {
-    fetch("/priorities")
-      .then((res) => {
-      if (res.ok) {
-        res.json().then((priorities) => setPriorities(priorities));
-      }
-    });
-  }, []);
-
 
   useEffect(() => {
     fetch("/priority_levels")
@@ -29,16 +18,27 @@ function Priority({user}){
 
 
   function addNewPriority(newPriority) {
-    setPriorities([...priorities, newPriority])
+
+    const revisedPriority = {
+      id: newPriority.id,
+      title: newPriority.title,
+      comment: newPriority.comment,
+      level_id: newPriority.priority_level.id,      
+      level_name: newPriority.priority_level.name,
+      level_color: newPriority.priority_level.color
+    }
+
+    setPriorities([...priorities, revisedPriority])
   }
 
   function handlePriorityDelete(deletedPriorityId) {
     setPriorities(priorities.filter((priority) => (priority.id !== deletedPriorityId)))
   }
 
-
   function priorityLevelDelete(deletedPriorityLevelId) {
     setPriorityLevelNames(priorityLevelNames.filter((priorityLevel) => (priorityLevel.id !== deletedPriorityLevelId)))
+
+    setPriorities(priorities.filter((priority) => (priority.level_id !== deletedPriorityLevelId)))
   }
 
   return (
