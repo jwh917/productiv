@@ -1,5 +1,9 @@
 import React, {useState} from "react";
 
+const inputStyles = {
+  cursor: "pointer"
+};
+
 
 function NewTodoCategoryForm({addNewCategory, setTodoCategories, todoCategories}) {
     const [newCategoryName, setNewCategoryName] = useState("")
@@ -43,7 +47,7 @@ function NewTodoCategoryForm({addNewCategory, setTodoCategories, todoCategories}
             </label>
 
             {errors.map((err) => ( <h6 key={err}>{err}</h6>))}
-            <input type="submit" value="Add Category"></input>
+            <input type="submit" style={inputStyles} value="Add Category"></input>
 
         </form>
         <br/>

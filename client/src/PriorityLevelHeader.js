@@ -1,5 +1,9 @@
 import React from "react";
 
+const inputStyles = {
+  cursor: "pointer"
+};
+
 
 function PriorityLevelHeader({level, priorityLevelDelete}){
   
@@ -17,7 +21,7 @@ function PriorityLevelHeader({level, priorityLevelDelete}){
     <div key={id}>
       <h3>
         <u style={{color: `${color}`}}>{name}</u>
-        <button type="button" onClick={handleDelete}>Delete</button>
+        <button type="button" style={inputStyles} onClick={handleDelete}>Delete <br/> 🗑</button>
       </h3>
     </div>
   );

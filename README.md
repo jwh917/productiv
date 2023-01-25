@@ -79,26 +79,26 @@ npm i -g npm
 
     A user has a one-to-one relationship with a profile 
 
-    * Every user would have one, and only one, profile.
-    * Every profile would have one, and only one, user.
+    - Every user would have one, and only one, profile.
+    - Every profile would have one, and only one, user.
 
     A profile has a one-to-many relationship with habits
 
-    * Every profile can have many habits
-    * All habits belong to a profile
+    - Every profile can have many habits
+    - All habits belong to a profile
 
     A user has a one-to-many relationship with todos and priorities
 
-    * Every user can have many todos
-    * All todos belong to a user
-    * Every user can have many priorities
-    * All priorities belong to a user
+    - Every user can have many todos
+    - All todos belong to a user
+    - Every user can have many priorities
+    - All priorities belong to a user
 
     A user also has a many-to-many relationship with todo categories
     and priority levels using `has_many :through`
 
-    * A user has many todo categories through todos and each todo category can have many todos.
-    * similarly, a user has many priority levels through priorities and priority level can have many priorities.
+    - A user has many todo categories through todos and each todo category can have many todos.
+    - similarly, a user has many priority levels through priorities and priority level can have many priorities.
 
 
     The application uses Active Record to interact with the database and API routes built with Sinatra handle several different CRUD actions.

@@ -71,7 +71,7 @@ function Todo({user, setUser, todos, setTodos, selectedCategory, setSelectedCate
         
       <div className="todoList">
         <h1><u>Todo List</u></h1>
-        <h2><u>Todo Count</u>: {todos.length}</h2>
+        <h2><u>Todo Count</u>: <br/> {todos.length}</h2>
       </div>
 
       <div >

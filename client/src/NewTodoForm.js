@@ -1,6 +1,12 @@
 import React, {useState} from "react";
 
 
+const inputStyles = {
+  cursor: "pointer"
+};
+
+
+
 function NewTodoForm({user, setUser, categoryNames, addNewTodo, todoCategories}) {
     const [newItemTitle, setNewItemTitle] = useState("")
     const [newItemCategoryId, setNewItemCategoryId] = useState(0)
@@ -65,14 +71,14 @@ function NewTodoForm({user, setUser, categoryNames, addNewTodo, todoCategories})
                 New Todo Title: <input type="text" onChange={(e) => setNewItemTitle(e.target.value)} value={newItemTitle}></input>
             </label>
             <br/>
-                <label> Category: 
-                  <select onChange={handleSelectedCategory}>
+                <label> Category: <br/>
+                  <select style={inputStyles} onChange={handleSelectedCategory}>
                     <option>Choose a Category</option>
                     {options}
                   </select>
                 </label>
                 <br/>
-            <input type="submit" value="Add Todo"></input>
+            <input type="submit" style={inputStyles} value="Add Todo"></input>
 
             {errors.map((err) => ( <h6 key={err}>{err}</h6>))}
 

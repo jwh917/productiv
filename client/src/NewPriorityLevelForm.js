@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 
+const inputStyles = {
+  cursor: "pointer"
+};
+
 
 function NewPriorityLevelForm({priorityLevelNames, setPriorityLevelNames}) {
 
@@ -47,10 +51,10 @@ function NewPriorityLevelForm({priorityLevelNames, setPriorityLevelNames}) {
       <input type="text" onChange={(e) => setPriorityLevelName(e.target.value)} value={priorityLevelName}/>
 
       <label htmlFor="levelColor">Priority Level Color:</label>
-      <input type="color" onChange={(e) => setPriorityLevelColor(e.target.value)}></input>
+      <input type="color" style={inputStyles} onChange={(e) => setPriorityLevelColor(e.target.value)}></input>
 
       <br/>
-      <button type="submit">Add Priority Level</button>
+      <button type="submit" style={inputStyles}>Add Priority Level</button>
 
       {errors.map((err) => ( <h6 key={err}>{err}</h6>))}
 

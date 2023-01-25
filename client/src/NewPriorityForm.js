@@ -1,5 +1,9 @@
 import React, {useState} from "react";
 
+const inputStyles = {
+  cursor: "pointer"
+};
+
 function NewPriorityForm({user, priorityLevelNames, addNewPriority}) {
     const [newItemTitle, setNewItemTitle] = useState("")
     const [newItemComment, setNewItemComment] = useState("")
@@ -54,7 +58,7 @@ function NewPriorityForm({user, priorityLevelNames, addNewPriority}) {
             <input type="text" onChange={(e) => setNewItemComment(e.target.value)} value={newItemComment}/>
 
             <label htmlFor="priorityLevel">Priority Level:</label>
-            <select onChange={handleSelectedLevel}>
+            <select style={inputStyles} onChange={handleSelectedLevel}>
               <option>Choose a Priority Level</option>
 
               {priorityLevelNames.map(level => (
@@ -64,7 +68,7 @@ function NewPriorityForm({user, priorityLevelNames, addNewPriority}) {
 
             <br/>
             <br/>
-            <button type="submit">Add Priority</button>
+            <button type="submit" style={inputStyles}>Add Priority</button>
 
             {errors.map((err) => ( <h6 key={err}>{err}</h6>))}
 

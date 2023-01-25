@@ -14,7 +14,6 @@
   border: 2px solid rgba(255,255,255,0.1);
   box-shadow: 0 0 40px rgba(8,7,16,0.6);
   padding: 50px 35px;
-  
 }
 
 .loginSignUp *{
@@ -93,7 +92,6 @@
   border: 2px solid rgba(255,255,255,0.1);
   box-shadow: 0 0 40px rgba(8,7,16,0.6);
   padding: 50px 35px;
-  
 }
 
 .profileForm *{
@@ -108,7 +106,6 @@
   font-weight: 500;
   line-height: 42px;
   text-align: center;
-  
 }
 
 .profileForm label{
@@ -211,8 +208,6 @@
   font-size: 20px;
   font-weight: 300;
   text-align: center;
-  
-
 }
 .aboutPage::placeholder{
   color: #e5e5e5;
@@ -324,8 +319,7 @@
 .todoPage label{
   display: block;
   margin-top: 15px;
-  font-size: 15px;
-  font-weight: 500;
+  font-size: 20px;
 }
 
 .todoPage input{
@@ -337,11 +331,10 @@
   padding: 0px 10px;
   margin-top: 5px;
   font-size: 20px;
-  font-weight: 300;
-  text-align: center;
-  
-
+  font-weight: 380;
+  text-align: center;  
 }
+
 .todoPage::placeholder{
   color: #e5e5e5;
 }
@@ -353,8 +346,6 @@
 .todoCategoryButtons{
   position: relative;
   display: inline-flex;
-  
-  
   right: 165px;
 }
 
@@ -412,7 +403,6 @@
   display: block;
   margin-top: 15px;
   font-size: 15px;
-  font-weight: 500;
 }
 
 .priorityPage input{
@@ -424,11 +414,8 @@
   padding: 0px 10px;
   margin-top: 5px;
   font-size: 20px;
-  font-weight: 300;
-  text-align: center;
-  
-
 }
+
 .priorityPage::placeholder{
   color: #e5e5e5;
 }
@@ -466,6 +453,10 @@
   grid-gap: 20px;
 }
 
+.priorityName-container button{
+  border-radius: 3px;
+}
+
 .priorityForm-container {
   position: absolute;
   left: 100px;
@@ -473,4 +464,26 @@
   grid-template-columns: 1fr 1fr;
   grid-gap: 5px;
 }
+
+.priorityForm-container button{
+  display: block;
+  height: 25px;
+  width: fit-content;
+  background-color: rgba(255,255,255,0.07);
+  border-radius: 3px;
+  padding: 0px 10px;
+  margin-top: 5px;
+  font-size: 20px;
+  font-weight: 380;
+  text-align: center;
+}
+
+button {   
+  cursor: "pointer"
+}
+
+input[type="submit"] {   
+  cursor: "pointer"
+}
+
 

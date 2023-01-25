@@ -11,6 +11,7 @@ const buttonStyles = {
   borderRadius: "10px",
   textDecoration: "none",
   color: "black",
+  cursor: "pointer"
 };
 
 const xStyles = {
@@ -48,7 +49,7 @@ function TodoCategoryFilter({ categoryNames, handleCategorySelected, todoCategor
           <br/>
           
           </button>
-          {category === "All" ? "" : <span style={xStyles} onClick={() => (handleDeleteCategory(category))}>X</span> }
+          {category === "All" ? "" : <button style={xStyles} onClick={() => (handleDeleteCategory(category))}>❌</button> }
 
           </div>)
     })
