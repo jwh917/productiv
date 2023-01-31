@@ -56,7 +56,6 @@ function Home({user}) {
         <ul>
           <li>Check Todo List</li>
           <li>Set up Priority Bar</li>
-          <li>If you haven't already</li>
         </ul>
       </div>
 

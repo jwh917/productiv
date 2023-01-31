@@ -13,7 +13,7 @@ function PriorityItem({priority, handlePriorityDelete}){
     fetch(`priorities/${id}`, {
         method: "DELETE"
     });
-    handlePriorityDelete(id)
+    handlePriorityDelete(priority)
   }
 
   return (

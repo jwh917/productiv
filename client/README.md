@@ -9,7 +9,7 @@ A Rails backend, web API that supports a frontend React application. An applicat
 - HTML
 - CSS
 - Javascript
-- React, this project was bootstrapped with Create React App.
+- React
 - Ruby
 - Rails
 
@@ -46,4 +46,4 @@ A Rails backend, web API that supports a frontend React application. An applicat
 6.   Priority Bar
 
 -   Users can create priorities and priority level to be add to the priority bar.
--   Priorities can be add to the priority level that has the macthing color and level. Priorities and priority level also be removed.
+-   Priorities can be add to the priority level that has the macthing color and level. Priorities and priority level also can be removed.

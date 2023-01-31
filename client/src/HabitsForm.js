@@ -62,7 +62,7 @@ function HabitsForm({user}){
   
   return (
   <div style={{position: "absolute", left: "600px", marginTop: "-60px"}}>
-    <h4><u>Add Habits Here-</u></h4>
+    <h4><u>Add Habits-</u></h4>
 
     <form onSubmit={handleSubmit}>
       <label htmlFor="Shower">Shower 🚿 | 🛀🏾 </label>

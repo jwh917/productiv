@@ -5,7 +5,7 @@ import NewTodoForm from "./NewTodoForm";
 import NewTodoCategoryForm from "./NewTodoCategoryForm";
 
 
-function TodoList ({user, setUser, selectedTodos, categoryNames, handleCategorySelected, addNewTodo, handleDeleteTodo, addNewCategory, setTodoCategories, todoCategories, deleteCategory, setSelectedCategory}) {
+function TodoList ({user, setUser, selectedTodos, categoryNames, handleCategorySelected, addNewTodo, handleDeleteTodo, addNewCategory, setTodoCategories, todoCategories, deleteCategory, setSelectedCategory, updateTodo}) {
 
 
     const todosShown = selectedTodos.map((todo) => {
@@ -18,6 +18,8 @@ function TodoList ({user, setUser, selectedTodos, categoryNames, handleCategoryS
                 todoId={todo.id}
                 completed={todo.completed}
                 handleDeleteTodo={handleDeleteTodo}
+                updateTodo={updateTodo}
+                
             />
         )
     })

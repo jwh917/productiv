@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :username, :password_digest, :profile, :priorities, :custom_todos, :custom_priorities
+  attributes :id, :username, :password_digest, :profile, :custom_todos, :custom_priorities
 
   def custom_todos
     object.todos.map do |todo|
@@ -26,5 +26,10 @@ class UserSerializer < ActiveModel::Serializer
     end
 
   end
+
+  has_many :todo_categories
+  has_many :priority_levels
+  
+
 
 end

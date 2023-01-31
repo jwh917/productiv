@@ -19,6 +19,11 @@ function About({user, setUser}) {
   const [endDayUpdate, setEndDayUpdate] = useState(end_day);
   const [bioUpdate, setBioUpdate] = useState(bio);
 
+  const [showConfirm, setShowConfirm] = useState(false);
+
+  const handleClick = () => {
+    setShowConfirm(true);
+  };
 
   function handleUpdateUser(e){
     e.preventDefault()
@@ -43,6 +48,8 @@ function About({user, setUser}) {
 
   
   function handleDeleteUser() {
+
+    setShowConfirm(false);
 
     fetch("/logout", { method: "DELETE" }).then((r) => {
       if (r.ok) {
@@ -96,7 +103,16 @@ function About({user, setUser}) {
       <div>
       <h1 style={{position: "relative", left: "-100px"}}><u>About User</u></h1>
       <span>
-        <button className="deleteAccountButton" onClick={handleDeleteUser} style={{position: "relative", left: "-100px"}}> DELETE ACCOUNT</button>
+        {showConfirm ? (
+        <div>
+          <p style={{position: "relative", left: "-100px"}}>Are you sure you want to delete your account?</p>
+          <button className="deleteAccountButton" onClick={handleDeleteUser}>Confirm</button>
+          <br/>
+          <button className="cancelButton" onClick={() => setShowConfirm(false)}>Cancel</button>
+        </div>
+        ) : (
+        <button className="deleteAccountButton" onClick={handleClick}>Delete Account</button>
+        )}
       </span> 
     
       <br/>
@@ -105,7 +121,7 @@ function About({user, setUser}) {
       <br/>
 
       <form onSubmit={handleUpdateUser} style={{position: "relative", left: "-100px"}}>
-        <h4><u>Edit User Info Here-</u></h4>
+        <h4><u>Edit User Info-</u></h4>
 
         <label htmlFor="name">User Name:</label>
         <input type="text" placeholder="User Name" id="username" value={usernameUpdate} onChange={(e) => setUsernameUpdate(e.target.value)}/>
@@ -132,7 +148,7 @@ function About({user, setUser}) {
       <br/>
 
       <form onSubmit={handleUpdateProfile} style={{position: "relative", left: "-80px"}}>
-        <h4><u>Edit Profile Info Here-</u></h4>
+        <h4><u>Edit Profile Info-</u></h4>
 
         <label htmlFor="name">Name:</label>
         <input type="text" placeholder="Name" id="name"  value={nameUpdate} onChange={(e) => setNameUpdate(e.target.value)}/>

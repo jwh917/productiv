@@ -3,7 +3,10 @@ import TodoList from "./TodoList"
 
 
 
-function Todo({user, setUser, todos, setTodos, selectedCategory, setSelectedCategory}) {
+function Todo({user, setUser, selectedCategory, setSelectedCategory}) {
+
+  const [todos, setTodos] = useState([...user.custom_todos]);
+  console.log(todos)
 
   const [todoCategories, setTodoCategories] = useState([]);
   const [categoryNames, setCategoryNames] = useState([]);
@@ -47,7 +50,15 @@ function Todo({user, setUser, todos, setTodos, selectedCategory, setSelectedCate
   }
 
   function addNewTodo(newTodo) {
-    setTodos([...todos, newTodo])
+
+    const revisedTodo = {
+      id: newTodo.id,
+      title: newTodo.title,
+      category: newTodo.todo_category.name,
+      completed: newTodo.completed
+    }
+
+    setTodos([...todos, revisedTodo])
   }
 
   function addNewCategory(newCategory) {
@@ -56,12 +67,21 @@ function Todo({user, setUser, todos, setTodos, selectedCategory, setSelectedCate
 
   function deleteCategory(category){
 
-    setTodos(todos.filter((todo) => (todo.category || todo.todo_category.name !== category)))
+    setTodos(todos.filter((todo) => (todo.category !== category)))
 
     setTodoCategories(todoCategories.filter((todo) => (todo.name !== category)))
     
     setCategoryNames(categoryNames.filter((categoryName) => (categoryName !== category)))
 
+  }
+
+  function updateTodo(updatedTodo){
+    setTodos(todos.map((todo) => {
+      if (todo.id === updatedTodo.id){
+        todo.completed = updatedTodo.completed
+      }
+      return todo
+    }))
   }
 
 
@@ -70,12 +90,12 @@ function Todo({user, setUser, todos, setTodos, selectedCategory, setSelectedCate
     <div className="todoPage">
         
       <div className="todoList">
-        <h1><u>Todo List</u></h1>
+        <h1><u>ToDoList</u></h1>
         <h2><u>Todo Count</u>: <br/> {todos.length}</h2>
       </div>
 
       <div >
-        <TodoList user={user} setUser={setUser} selectedTodos={selectedTodos} categoryNames={categoryNames} handleCategorySelected={handleCategorySelected} addNewTodo={addNewTodo} handleDeleteTodo={handleDeleteTodo} addNewCategory={addNewCategory} setTodoCategories={setTodoCategories} todoCategories={todoCategories} deleteCategory={deleteCategory} setSelectedCategory={setSelectedCategory}/>
+        <TodoList user={user} setUser={setUser} selectedTodos={selectedTodos} categoryNames={categoryNames} handleCategorySelected={handleCategorySelected} addNewTodo={addNewTodo} handleDeleteTodo={handleDeleteTodo} addNewCategory={addNewCategory} setTodoCategories={setTodoCategories} todoCategories={todoCategories} deleteCategory={deleteCategory} setSelectedCategory={setSelectedCategory} updateTodo={updateTodo}/>
       </div>
 
     </div>

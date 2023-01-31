@@ -2,7 +2,7 @@ class User < ApplicationRecord
   has_one :profile, dependent: :destroy
 
   has_many :todos, dependent: :destroy
-  has_many :todos_categories, through: :todos
+  has_many :todo_categories, through: :todos
 
   has_many :priorities, dependent: :destroy
   has_many :priority_levels, through: :priorities

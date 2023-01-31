@@ -1,19 +1,16 @@
 import React, { useState }  from "react";
 
 
-function TodoItem({ title, category, todoId, completed, handleDeleteTodo }) {
-
+function TodoItem({ title, category, todoId, completed, handleDeleteTodo, updateTodo}) {
 
   const [isCompleted, setIsCompleted] = useState(completed);
 
-
   function handleChecked(){
-    setIsCompleted(!isCompleted)
 
     fetch(`todos/${todoId}`, {
       method: 'PATCH',
       body: JSON.stringify({
-        completed:  !isCompleted,
+        completed: !isCompleted,
       }),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
@@ -21,8 +18,9 @@ function TodoItem({ title, category, todoId, completed, handleDeleteTodo }) {
     })
       .then((response) => response.json())
       .then((todo) => {
+        updateTodo(todo)
         setIsCompleted(todo.completed)
-      
+
       });
 
   }

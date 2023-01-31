@@ -14,7 +14,7 @@ function PriorityLevelHeader({level, priorityLevelDelete}){
     fetch(`priority_levels/${id}`, {
         method: "DELETE"
     });
-    priorityLevelDelete(id)
+    priorityLevelDelete(level)
   }
 
   return (

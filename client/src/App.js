@@ -14,20 +14,14 @@ import Priority from "./Priority";
 function App() {
 
   const [user, setUser] = useState(null);
-  const [todos, setTodos] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [priorities, setPriorities] = useState([]);
 
 
   useEffect(() => {
 
     fetch("/me").then((res) => {
       if (res.ok) {
-        res.json().then((user) => {
-          setUser(user)
-          setTodos(user.custom_todos)
-          setPriorities(user.custom_priorities)
-        });
+        res.json().then((user) => setUser(user));
       }
     });
 
@@ -41,29 +35,23 @@ function App() {
 
 
   return (
-    <div className="App">
-      <header className="App-header">     
-
-        <>
-        <NavBar user={user} setUser={setUser}/>
-        <Switch>
-          <Route exact path="/about">
-            <About user={user} setUser={setUser}/>
-          </Route>
-          <Route exact path="/todo">
-            <Todo user={user} setUser={setUser} todos={todos} setTodos={setTodos} selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory}/>
-          </Route>
-          <Route exact path="/prioritybar">
-            <Priority user={user} priorities={priorities} setPriorities={setPriorities}/>
-          </Route>
-          <Route exact path="/">
-            <Home user={user}/>
-          </Route>
-        </Switch>
-        </>
-
-      </header>
-    </div>
+    <>
+      <NavBar user={user} setUser={setUser}/>
+      <Switch>
+        <Route exact path="/about">
+          <About user={user} setUser={setUser}/>
+        </Route>
+        <Route exact path="/todo">
+          <Todo user={user} setUser={setUser} selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory}/>
+        </Route>
+        <Route exact path="/prioritybar">
+          <Priority user={user}/>
+        </Route>
+        <Route exact path="/">
+          <Home user={user}/>
+        </Route>
+      </Switch>
+    </>
   );
 }
 

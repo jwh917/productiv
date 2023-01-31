@@ -5,9 +5,17 @@ import NewPriorityLevelForm from "./NewPriorityLevelForm";
 
 
 
-function Priority({user, priorities, setPriorities}){
+function Priority({user}){
+
+  const [priorities, setPriorities] = useState([...user.custom_priorities]);
 
   const [priorityLevelNames, setPriorityLevelNames] = useState([]);
+
+  const [shownPriorityLevelNames, setShownPriorityLevelNames] = useState([...user.priority_levels.map((priority) => priority.name)]);
+
+  const uniqueShown = [...new Set(shownPriorityLevelNames)];
+
+
 
   useEffect(() => {
     fetch("/priority_levels")
@@ -29,16 +37,34 @@ function Priority({user, priorities, setPriorities}){
     }
 
     setPriorities([...priorities, revisedPriority])
+
+    setShownPriorityLevelNames([...shownPriorityLevelNames, newPriority.priority_level.name])
+
   }
 
-  function handlePriorityDelete(deletedPriorityId) {
-    setPriorities(priorities.filter((priority) => (priority.id !== deletedPriorityId)))
+  function handlePriorityDelete(deletedPriority) {
+
+    const updatedPriorities = priorities.filter(
+      priority => priority.id !== deletedPriority.id)
+    setPriorities(updatedPriorities)
+
+
+    if (!updatedPriorities.some(p => p.level_name === deletedPriority.level_name)) {
+      const updatedPriorityLevels = shownPriorityLevelNames.filter(
+        level => level !== deletedPriority.level_name
+      )
+      setShownPriorityLevelNames(updatedPriorityLevels)
+    }
+    
   }
 
-  function priorityLevelDelete(deletedPriorityLevelId) {
-    setPriorityLevelNames(priorityLevelNames.filter((priorityLevel) => (priorityLevel.id !== deletedPriorityLevelId)))
+  function priorityLevelDelete(deletedPriorityLevel) {
+    setPriorityLevelNames(priorityLevelNames.filter((priorityLevel) => (priorityLevel.id !== deletedPriorityLevel.id)))
 
-    setPriorities(priorities.filter((priority) => (priority.level_id !== deletedPriorityLevelId)))
+    setPriorities(priorities.filter((priority) => (priority.level_id !== deletedPriorityLevel.id)))
+
+    setShownPriorityLevelNames(shownPriorityLevelNames.filter((name) => (name !== deletedPriorityLevel.name)))
+
   }
 
   return (
@@ -47,14 +73,19 @@ function Priority({user, priorities, setPriorities}){
       <div>
         <br/>
         <br/>
-        <br/>
 
-        <h2 className="priorityHeader"><u>Organize Your Priorities</u></h2>
-
-        <br/>
-        <br/>
+        <h2 className="priorityHeader">
+          <u>Organize Your Priorities</u>
+        </h2>
 
         <div className="priorityForm-container">
+          
+          <p>Priority Levels in use:
+            <br/>
+
+            {uniqueShown.join(", ")}
+          </p>
+          <br/>
 
           <NewPriorityForm user={user} priorityLevelNames={priorityLevelNames} addNewPriority={addNewPriority}/>
           <br/>
